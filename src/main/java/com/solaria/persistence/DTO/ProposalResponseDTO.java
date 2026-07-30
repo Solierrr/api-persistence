@@ -1,6 +1,5 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
-import com.solaria.persistence.Domain.enums.ProposalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,6 +9,8 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.ProposalStatus;
 
 @Setter
 @Getter

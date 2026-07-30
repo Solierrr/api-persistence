@@ -1,11 +1,12 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
-import com.solaria.persistence.Domain.enums.PlanCycle;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.PlanCycle;
 
 @Getter
 @Setter

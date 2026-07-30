@@ -1,4 +1,4 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
 import java.math.BigDecimal;
 import java.util.UUID;

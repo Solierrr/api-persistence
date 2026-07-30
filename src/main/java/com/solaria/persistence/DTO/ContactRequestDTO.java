@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;

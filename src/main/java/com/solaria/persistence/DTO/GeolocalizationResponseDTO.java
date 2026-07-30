@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;

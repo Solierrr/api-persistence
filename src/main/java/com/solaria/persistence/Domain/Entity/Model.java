@@ -1,11 +1,12 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.ModelStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.ModelStatus;
 
 @Entity
 @Table(name = "model")
