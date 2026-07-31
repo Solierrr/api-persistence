@@ -1,10 +1,11 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.TechnicalAffiliationType;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
 
 @Entity
 @Table(name = "technician_affiliation")

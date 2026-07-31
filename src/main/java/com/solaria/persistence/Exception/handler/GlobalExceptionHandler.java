@@ -1,4 +1,4 @@
-package com.solaria.persistence.Exception.handler;
+package com.solaria.persistence.exception.handler;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.solaria.persistence.Exception.BusinessException;
+import com.solaria.persistence.exception.BusinessException;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;

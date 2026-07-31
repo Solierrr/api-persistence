@@ -1,10 +1,11 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
-import com.solaria.persistence.Domain.enums.LocationType;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.LocationType;
 
 @Getter
 @Setter

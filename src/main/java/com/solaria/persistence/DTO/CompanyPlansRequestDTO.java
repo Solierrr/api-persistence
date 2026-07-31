@@ -1,12 +1,13 @@
-package com.solaria.persistence.DTO;
+package com.solaria.persistence.dto;
 
-import com.solaria.persistence.Domain.enums.PlanCycle;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+
+import com.solaria.persistence.domain.enums.PlanCycle;
 
 @Setter
 @Getter

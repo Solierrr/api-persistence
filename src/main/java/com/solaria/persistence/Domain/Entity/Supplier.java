@@ -1,10 +1,11 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.SupplierStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.SupplierStatus;
 
 @Entity
 @Table(name = "supplier")

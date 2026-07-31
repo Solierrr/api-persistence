@@ -1,11 +1,12 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.SubscriptionStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
+
+import com.solaria.persistence.domain.enums.SubscriptionStatus;
 
 @Entity
 @Table(name = "subscription")

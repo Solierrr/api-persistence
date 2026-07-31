@@ -1,6 +1,6 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
-import com.solaria.persistence.Entity.TechnicalService;
+import com.solaria.persistence.domain.entity.TechnicalService;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
