@@ -1,0 +1,132 @@
+package com.solaria.persistence.Service;
+
+import java.time.LocalDate;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import tools.jackson.databind.ObjectMapper;
+import com.solaria.persistence.DTO.Request.ServiceContractRequestDTO;
+import com.solaria.persistence.DTO.Response.ServiceContractResponseDTO;
+import com.solaria.persistence.Domain.Entity.ServiceContract;
+import com.solaria.persistence.Domain.Entity.TechnicalService;
+import com.solaria.persistence.Domain.enums.ServiceStatus;
+import com.solaria.persistence.Exception.BusinessRuleException;
+import com.solaria.persistence.Exception.DuplicateResourceException;
+import com.solaria.persistence.Exception.InvalidFieldException;
+import com.solaria.persistence.Exception.ResourceNotFoundException;
+import com.solaria.persistence.Repository.ServiceContractRepository;
+import com.solaria.persistence.Repository.TechnicalServiceRepository;
+
+
+@Service
+public class ServiceContractService {
+
+    private final ServiceContractRepository serviceContractRepository;
+    private final TechnicalServiceRepository technicalServiceRepository;
+    private final ObjectMapper objectMapper;
+
+    public ServiceContractService(ServiceContractRepository serviceContractRepository,
+                                  TechnicalServiceRepository technicalServiceRepository,
+                                  ObjectMapper objectMapper) {
+        this.serviceContractRepository = serviceContractRepository;
+        this.technicalServiceRepository = technicalServiceRepository;
+        this.objectMapper = objectMapper;
+    }
+
+    @Transactional
+    public ServiceContractResponseDTO save(ServiceContractRequestDTO dto) {
+        validateDeliveryDeadline(dto.getDeliveryDeadline());
+
+        TechnicalService service = technicalServiceRepository.findById(dto.getServiceId())
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Serviço Técnico não encontrado com ID: " + dto.getServiceId()));
+
+        if (serviceContractRepository.existsByServiceId(dto.getServiceId())) {
+            throw new DuplicateResourceException(
+                    "Contrato de Serviço já cadastrado para o serviço: " + dto.getServiceId());
+        }
+
+        if (service.getStatus() != ServiceStatus.IN_PROGRESS) {
+            throw new BusinessRuleException(
+                    "Contrato de Serviço não pode ser criado no status: " + service.getStatus());
+        }
+
+        ServiceContract serviceContract = new ServiceContract();
+        serviceContract.setService(service);
+        serviceContract.setWarranty(dto.getWarranty());
+        serviceContract.setDeliveryDeadline(dto.getDeliveryDeadline());
+        serviceContract.setInsurance(dto.getInsurance());
+        serviceContract.setUtilityApproval(false);
+
+        return toResponse(serviceContractRepository.save(serviceContract));
+    }
+
+    @Transactional
+    public ServiceContractResponseDTO update(UUID id, ServiceContractRequestDTO dto) {
+        ServiceContract serviceContract = serviceContractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Contrato de Serviço com id:" + id + " não encontrado para atualização"));
+
+        if (!dto.getServiceId().equals(serviceContract.getService().getId())) {
+            throw new InvalidFieldException("serviceId imutável: " + dto.getServiceId());
+        }
+
+        validateDeliveryDeadline(dto.getDeliveryDeadline());
+
+        serviceContract.setWarranty(dto.getWarranty());
+        serviceContract.setDeliveryDeadline(dto.getDeliveryDeadline());
+        serviceContract.setInsurance(dto.getInsurance());
+
+        return toResponse(serviceContractRepository.save(serviceContract));
+    }
+
+    @Transactional
+    public ServiceContractResponseDTO markUtilityApproved(UUID id) {
+        ServiceContract serviceContract = serviceContractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Contrato de Serviço com id:" + id + " não encontrado para atualização"));
+
+        serviceContract.setUtilityApproval(true);
+
+        return toResponse(serviceContractRepository.save(serviceContract));
+    }
+
+    @Transactional(readOnly = true)
+    public ServiceContractResponseDTO findById(UUID id) {
+        ServiceContract serviceContract = serviceContractRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Contrato de Serviço não encontrado com ID: " + id));
+        return toResponse(serviceContract);
+    }
+
+    @Transactional(readOnly = true)
+    public ServiceContractResponseDTO findById(UUID id, UUID companyId) {
+        ServiceContract serviceContract = serviceContractRepository
+                .findByIdAndService_TechnicalProject_Requester_Company_Id(id, companyId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Contrato de Serviço não encontrado com ID: " + id));
+        return toResponse(serviceContract);
+    }
+
+    @Transactional(readOnly = true)
+    public ServiceContractResponseDTO findByService(UUID serviceId) {
+        ServiceContract serviceContract = serviceContractRepository.findByServiceId(serviceId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Contrato de Serviço não encontrado para o serviço: " + serviceId));
+        return toResponse(serviceContract);
+    }
+
+    private void validateDeliveryDeadline(LocalDate deliveryDeadline) {
+        if (deliveryDeadline != null && deliveryDeadline.isBefore(LocalDate.now())) {
+            throw new InvalidFieldException("Prazo de entrega inválido: " + deliveryDeadline);
+        }
+    }
+
+    private ServiceContractResponseDTO toResponse(ServiceContract entity) {
+        ServiceContractResponseDTO response = objectMapper.convertValue(entity, ServiceContractResponseDTO.class);
+        response.setServiceId(entity.getService().getId());
+        return response;
+    }
+}

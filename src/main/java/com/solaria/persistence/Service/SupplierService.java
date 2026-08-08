@@ -1,0 +1,185 @@
+package com.solaria.persistence.Service;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.solaria.persistence.DTO.Response.AddressResponseDTO;
+import com.solaria.persistence.DTO.Response.BusinessContactResponseDTO;
+import com.solaria.persistence.DTO.Response.CompanyResponseDTO;
+import com.solaria.persistence.DTO.Request.SupplierRequestDTO;
+import com.solaria.persistence.DTO.Response.SupplierResponseDTO;
+import com.solaria.persistence.Domain.Entity.Address;
+import com.solaria.persistence.Domain.Entity.BusinessContact;
+import com.solaria.persistence.Domain.Entity.Company;
+import com.solaria.persistence.Domain.Entity.Supplier;
+import com.solaria.persistence.Domain.enums.CompanyStatus;
+import com.solaria.persistence.Domain.enums.SupplierStatus;
+import com.solaria.persistence.Exception.BusinessRuleException;
+import com.solaria.persistence.Exception.DuplicateResourceException;
+import com.solaria.persistence.Exception.ResourceNotFoundException;
+import com.solaria.persistence.Repository.CompanyRepository;
+import com.solaria.persistence.Repository.RequesterRepository;
+import com.solaria.persistence.Repository.SupplierRepository;
+
+
+@Service
+public class SupplierService {
+
+    private static final Map<SupplierStatus, Set<SupplierStatus>> ALLOWED_TRANSITIONS = Map.of(
+            SupplierStatus.ACTIVE, Set.of(SupplierStatus.SUSPENDED, SupplierStatus.DEACTIVATED),
+            SupplierStatus.SUSPENDED, Set.of(SupplierStatus.ACTIVE, SupplierStatus.DEACTIVATED),
+            SupplierStatus.DEACTIVATED, Set.of(SupplierStatus.ACTIVE)
+    );
+
+    private final SupplierRepository supplierRepository;
+    private final CompanyRepository companyRepository;
+    private final RequesterRepository requesterRepository;
+
+    public SupplierService(SupplierRepository supplierRepository,
+                           CompanyRepository companyRepository,
+                           RequesterRepository requesterRepository) {
+        this.supplierRepository = supplierRepository;
+        this.companyRepository = companyRepository;
+        this.requesterRepository = requesterRepository;
+    }
+
+    @Transactional
+    public SupplierResponseDTO save(SupplierRequestDTO dto) {
+        Company company = companyRepository.findById(dto.getCompanyId())
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Empresa não encontrada com ID: " + dto.getCompanyId()));
+
+        if (company.getStatus() != CompanyStatus.APPROVED) {
+            throw new BusinessRuleException(
+                    "Empresa " + company.getId() + " não pode se tornar fornecedora: status " + company.getStatus());
+        }
+
+        if (requesterRepository.existsByCompanyId(dto.getCompanyId())) {
+            throw new BusinessRuleException(
+                    "Empresa " + dto.getCompanyId() + " já é demandante e não pode ser fornecedora");
+        }
+
+        if (supplierRepository.existsByCompanyId(dto.getCompanyId())) {
+            throw new DuplicateResourceException(
+                    "Fornecedor já cadastrado para a empresa: " + dto.getCompanyId());
+        }
+
+        Supplier supplier = new Supplier();
+        supplier.setCompany(company);
+        supplier.setBusinessType(dto.getBusinessType());
+
+        return toResponse(supplierRepository.save(supplier));
+    }
+
+    @Transactional
+    public SupplierResponseDTO activate(UUID id) {
+        return applyTransition(id, SupplierStatus.ACTIVE);
+    }
+
+    @Transactional
+    public SupplierResponseDTO suspend(UUID id) {
+        return applyTransition(id, SupplierStatus.SUSPENDED);
+    }
+
+    @Transactional
+    public SupplierResponseDTO deactivate(UUID id) {
+        return applyTransition(id, SupplierStatus.DEACTIVATED);
+    }
+
+    @Transactional(readOnly = true)
+    public SupplierResponseDTO findById(UUID id) {
+        Supplier supplier = supplierRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + id));
+        return toResponse(supplier);
+    }
+
+    @Transactional(readOnly = true)
+    public SupplierResponseDTO findById(UUID id, UUID companyId) {
+        Supplier supplier = supplierRepository.findByIdAndCompanyId(id, companyId).orElseThrow(
+                () -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + id));
+        return toResponse(supplier);
+    }
+
+    @Transactional(readOnly = true)
+    public List<SupplierResponseDTO> findAll() {
+        return supplierRepository.findAll().stream().map(this::toResponse).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SupplierResponseDTO> findByCompany(UUID companyId) {
+        return supplierRepository.findByCompanyId(companyId).stream().map(this::toResponse).toList();
+    }
+
+    private SupplierResponseDTO applyTransition(UUID id, SupplierStatus target) {
+        Supplier supplier = supplierRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + id));
+
+        validateTransition(supplier.getStatus(), target);
+
+        supplier.setStatus(target);
+        return toResponse(supplierRepository.save(supplier));
+    }
+
+    private void validateTransition(SupplierStatus current, SupplierStatus target) {
+        if (!ALLOWED_TRANSITIONS.getOrDefault(current, Set.of()).contains(target)) {
+            throw new BusinessRuleException(
+                    "Transição de status inválida: " + current + " → " + target);
+        }
+    }
+
+    private SupplierResponseDTO toResponse(Supplier supplier) {
+        SupplierResponseDTO dto = new SupplierResponseDTO();
+        dto.setId(supplier.getId());
+        dto.setStatus(supplier.getStatus());
+        dto.setBusinessType(supplier.getBusinessType());
+        dto.setCompany(toCompanyResponse(supplier.getCompany()));
+        return dto;
+    }
+
+    private CompanyResponseDTO toCompanyResponse(Company company) {
+        if (company == null) {
+            return null;
+        }
+        CompanyResponseDTO dto = new CompanyResponseDTO();
+        dto.setId(company.getId());
+        dto.setStatus(company.getStatus());
+        dto.setCnpj(company.getCnpj());
+        dto.setTradeName(company.getTradeName());
+        dto.setCorporateName(company.getCorporateName());
+        dto.setAddress(toAddressResponse(company.getAddress()));
+        dto.setBusinessContact(toBusinessContactResponse(company.getBusinessContact()));
+        return dto;
+    }
+
+    private AddressResponseDTO toAddressResponse(Address address) {
+        if (address == null) {
+            return null;
+        }
+        return AddressResponseDTO.builder()
+                .id(address.getId())
+                .state(address.getState())
+                .city(address.getCity())
+                .neighborhood(address.getNeighborhood())
+                .zipCode(address.getZipCode())
+                .street(address.getStreet())
+                .number(address.getNumber())
+                .build();
+    }
+
+    private BusinessContactResponseDTO toBusinessContactResponse(BusinessContact businessContact) {
+        if (businessContact == null) {
+            return null;
+        }
+        BusinessContactResponseDTO dto = new BusinessContactResponseDTO();
+        dto.setId(businessContact.getId());
+        dto.setCompanyEmail(businessContact.getCompanyEmail());
+        dto.setPhone(businessContact.getPhone());
+        dto.setWebsite(businessContact.getWebsite());
+        return dto;
+    }
+}
