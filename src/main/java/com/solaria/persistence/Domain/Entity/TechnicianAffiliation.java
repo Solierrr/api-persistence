@@ -18,8 +18,9 @@ public class TechnicianAffiliation {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_company", nullable = false)
+    @JoinColumn(name = "fk_company")
     private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,4 +30,7 @@ public class TechnicianAffiliation {
     @Enumerated(EnumType.STRING)
     @Column(name = "affiliation_type", nullable = false)
     private TechnicalAffiliationType affiliationType;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active = true;
 }

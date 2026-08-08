@@ -6,22 +6,22 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "technician_specialization")
+@Table(name = "certification_record")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TechnicianSpecialization {
+public class CertificationRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_technician", nullable = false)
-    private Technician technician;
+    @JoinColumn(name = "fk_professional_registration")
+    private ProfessionalRegistration professionalRegistration;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_specialization", nullable = false)
-    private Specialization specialization;
+    @JoinColumn(name = "fk_certification")
+    private Certification certification;
 }

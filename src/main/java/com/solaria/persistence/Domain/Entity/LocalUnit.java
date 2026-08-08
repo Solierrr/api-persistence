@@ -23,7 +23,7 @@ public class LocalUnit {
     private Requester requester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_address", nullable = false)
+    @JoinColumn(name = "fk_address")
     private Address address;
 
     @Column(name = "complement")

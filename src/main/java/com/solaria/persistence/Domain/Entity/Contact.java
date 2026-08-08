@@ -17,15 +17,9 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "work_email", length = 100)
-    private String workEmail;
+    @Column(name = "email", length = 100)
+    private String email;
 
-    @Column(name = "personal_email", length = 100)
-    private String personalEmail;
-
-    @Column(name = "work_phone", length = 12)
-    private String workPhone;
-
-    @Column(name = "personal_phone", length = 12)
-    private String personalPhone;
+    @Column(name = "phone", length = 12)
+    private String phone;
 }

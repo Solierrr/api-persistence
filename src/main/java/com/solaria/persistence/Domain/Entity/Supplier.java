@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "supplier")
 @Getter
@@ -25,4 +26,7 @@ public class Supplier {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private SupplierStatus status = SupplierStatus.ACTIVE;
+
+    @Column(name = "business_type", length = 40)
+    private String businessType;
 }

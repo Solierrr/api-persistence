@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "proposal")
 @Getter
@@ -26,7 +27,7 @@ public class Proposal {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private ProposalStatus status = ProposalStatus.OPEN;
+    private ProposalStatus status = ProposalStatus.AWAITING_SUPPLIER;
 
     @Column(name = "notes")
     private String notes;
