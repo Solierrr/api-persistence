@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Response;
+package com.solaria.persistence.dto.response;
 
-import com.solaria.persistence.Domain.enums.LocationType;
+import com.solaria.persistence.domain.enums.LocationType;
 import lombok.Getter;
 import lombok.Setter;
 

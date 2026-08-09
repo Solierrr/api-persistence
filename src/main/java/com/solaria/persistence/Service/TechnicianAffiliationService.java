@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.TechnicianAffiliationRequestDTO;
-import com.solaria.persistence.DTO.Response.TechnicianAffiliationResponseDTO;
-import com.solaria.persistence.Domain.Entity.Company;
-import com.solaria.persistence.Domain.Entity.Technician;
-import com.solaria.persistence.Domain.Entity.TechnicianAffiliation;
-import com.solaria.persistence.Domain.enums.TechnicalAffiliationType;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CompanyRepository;
-import com.solaria.persistence.Repository.TechnicianAffiliationRepository;
-import com.solaria.persistence.Repository.TechnicianRepository;
+import com.solaria.persistence.dto.request.TechnicianAffiliationRequestDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.entity.Technician;
+import com.solaria.persistence.domain.entity.TechnicianAffiliation;
+import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CompanyRepository;
+import com.solaria.persistence.repository.TechnicianAffiliationRepository;
+import com.solaria.persistence.repository.TechnicianRepository;
 
 @Service
 public class TechnicianAffiliationService {

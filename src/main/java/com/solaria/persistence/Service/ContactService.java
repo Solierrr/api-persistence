@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ContactRequestDTO;
-import com.solaria.persistence.DTO.Response.ContactResponseDTO;
-import com.solaria.persistence.Domain.Entity.Contact;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ContactRepository;
-import com.solaria.persistence.Repository.PersonRepository;
+import com.solaria.persistence.dto.request.ContactRequestDTO;
+import com.solaria.persistence.dto.response.ContactResponseDTO;
+import com.solaria.persistence.domain.entity.Contact;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ContactRepository;
+import com.solaria.persistence.repository.PersonRepository;
 
 @Service
 public class ContactService {

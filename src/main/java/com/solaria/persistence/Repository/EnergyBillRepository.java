@@ -1,6 +1,6 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
-import com.solaria.persistence.Domain.Entity.EnergyBill;
+import com.solaria.persistence.domain.entity.EnergyBill;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

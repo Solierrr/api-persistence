@@ -1,7 +1,7 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
-import com.solaria.persistence.Domain.Entity.Model;
-import com.solaria.persistence.Domain.enums.ModelStatus;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.enums.ModelStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

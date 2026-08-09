@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

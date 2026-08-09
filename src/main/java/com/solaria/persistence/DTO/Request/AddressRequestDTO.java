@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
-import com.solaria.persistence.Util.RegexValidator;
+import com.solaria.persistence.util.RegexValidator;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

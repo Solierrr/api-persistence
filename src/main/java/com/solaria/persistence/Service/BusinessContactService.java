@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,18 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.BusinessContactRequestDTO;
-import com.solaria.persistence.DTO.Response.BusinessContactResponseDTO;
-import com.solaria.persistence.Domain.Entity.BusinessContact;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.BusinessContactRepository;
-import com.solaria.persistence.Repository.CompanyRepository;
+import com.solaria.persistence.dto.request.BusinessContactRequestDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
+import com.solaria.persistence.domain.entity.BusinessContact;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.BusinessContactRepository;
+import com.solaria.persistence.repository.CompanyRepository;
 
-/**
- * Camada de serviço para {@link BusinessContact}. CRUD simples; {@code deleteById} checa que
- * nenhuma {@code Company} ainda referencia o contato antes de excluir.
- */
 @Service
 public class BusinessContactService {
 

@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.CertificationRequestDTO;
-import com.solaria.persistence.DTO.Response.CertificationResponseDTO;
-import com.solaria.persistence.Domain.Entity.Certification;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CertificationRecordRepository;
-import com.solaria.persistence.Repository.CertificationRepository;
+import com.solaria.persistence.dto.request.CertificationRequestDTO;
+import com.solaria.persistence.dto.response.CertificationResponseDTO;
+import com.solaria.persistence.domain.entity.Certification;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CertificationRecordRepository;
+import com.solaria.persistence.repository.CertificationRepository;
 
 @Service
 public class CertificationService {

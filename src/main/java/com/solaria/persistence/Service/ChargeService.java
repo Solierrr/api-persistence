@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ChargeRequestDTO;
-import com.solaria.persistence.DTO.Response.ChargeResponseDTO;
-import com.solaria.persistence.Domain.Entity.Charge;
-import com.solaria.persistence.Domain.Entity.Subscription;
-import com.solaria.persistence.Domain.enums.BillingStatus;
-import com.solaria.persistence.Domain.enums.PaymentMethod;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ChargeRepository;
-import com.solaria.persistence.Repository.SubscriptionRepository;
+import com.solaria.persistence.dto.request.ChargeRequestDTO;
+import com.solaria.persistence.dto.response.ChargeResponseDTO;
+import com.solaria.persistence.domain.entity.Charge;
+import com.solaria.persistence.domain.entity.Subscription;
+import com.solaria.persistence.domain.enums.BillingStatus;
+import com.solaria.persistence.domain.enums.PaymentMethod;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ChargeRepository;
+import com.solaria.persistence.repository.SubscriptionRepository;
 
 @Service
 public class ChargeService {

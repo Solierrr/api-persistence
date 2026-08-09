@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,21 +6,21 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.AddressResponseDTO;
-import com.solaria.persistence.DTO.Request.LocalUnitRequestDTO;
-import com.solaria.persistence.DTO.Response.LocalUnitResponseDTO;
-import com.solaria.persistence.Domain.Entity.Address;
-import com.solaria.persistence.Domain.Entity.LocalUnit;
-import com.solaria.persistence.Domain.Entity.Requester;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.AddressRepository;
-import com.solaria.persistence.Repository.EnergyBillRepository;
-import com.solaria.persistence.Repository.LocalUnitRepository;
-import com.solaria.persistence.Repository.ProposalUnitRepository;
-import com.solaria.persistence.Repository.RequesterRepository;
-import com.solaria.persistence.Repository.UnitSpecificationsRepository;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.request.LocalUnitRequestDTO;
+import com.solaria.persistence.dto.response.LocalUnitResponseDTO;
+import com.solaria.persistence.domain.entity.Address;
+import com.solaria.persistence.domain.entity.LocalUnit;
+import com.solaria.persistence.domain.entity.Requester;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.AddressRepository;
+import com.solaria.persistence.repository.EnergyBillRepository;
+import com.solaria.persistence.repository.LocalUnitRepository;
+import com.solaria.persistence.repository.ProposalUnitRepository;
+import com.solaria.persistence.repository.RequesterRepository;
+import com.solaria.persistence.repository.UnitSpecificationsRepository;
 
 
 @Service

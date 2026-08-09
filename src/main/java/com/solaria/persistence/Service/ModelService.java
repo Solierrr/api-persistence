@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ModelRequestDTO;
-import com.solaria.persistence.DTO.Response.ModelResponseDTO;
-import com.solaria.persistence.Domain.Entity.Model;
-import com.solaria.persistence.Domain.enums.ModelStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.InventoryRepository;
-import com.solaria.persistence.Repository.ModelRepository;
-import com.solaria.persistence.Repository.OfferRepository;
+import com.solaria.persistence.dto.request.ModelRequestDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.enums.ModelStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.InventoryRepository;
+import com.solaria.persistence.repository.ModelRepository;
+import com.solaria.persistence.repository.OfferRepository;
 
 @Service
 public class ModelService {

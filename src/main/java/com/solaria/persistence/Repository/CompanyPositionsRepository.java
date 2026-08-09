@@ -1,4 +1,4 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.solaria.persistence.Domain.Entity.CompanyPositions;
+import com.solaria.persistence.domain.entity.CompanyPositions;
 
 
 public interface CompanyPositionsRepository extends JpaRepository<CompanyPositions, UUID> {

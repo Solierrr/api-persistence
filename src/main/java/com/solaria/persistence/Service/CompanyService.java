@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,27 +6,27 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.AddressResponseDTO;
-import com.solaria.persistence.DTO.Response.BusinessContactResponseDTO;
-import com.solaria.persistence.DTO.Request.CompanyRequestDTO;
-import com.solaria.persistence.DTO.Response.CompanyResponseDTO;
-import com.solaria.persistence.Domain.Entity.Address;
-import com.solaria.persistence.Domain.Entity.BusinessContact;
-import com.solaria.persistence.Domain.Entity.Company;
-import com.solaria.persistence.Domain.enums.CompanyStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.AddressRepository;
-import com.solaria.persistence.Repository.BusinessContactRepository;
-import com.solaria.persistence.Repository.CompanyPositionsRepository;
-import com.solaria.persistence.Repository.CompanyRepository;
-import com.solaria.persistence.Repository.RequesterRepository;
-import com.solaria.persistence.Repository.SupplierRepository;
-import com.solaria.persistence.Repository.TechnicianAffiliationRepository;
-import com.solaria.persistence.Repository.UserCompanyRepository;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
+import com.solaria.persistence.dto.request.CompanyRequestDTO;
+import com.solaria.persistence.dto.response.CompanyResponseDTO;
+import com.solaria.persistence.domain.entity.Address;
+import com.solaria.persistence.domain.entity.BusinessContact;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.enums.CompanyStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.AddressRepository;
+import com.solaria.persistence.repository.BusinessContactRepository;
+import com.solaria.persistence.repository.CompanyPositionsRepository;
+import com.solaria.persistence.repository.CompanyRepository;
+import com.solaria.persistence.repository.RequesterRepository;
+import com.solaria.persistence.repository.SupplierRepository;
+import com.solaria.persistence.repository.TechnicianAffiliationRepository;
+import com.solaria.persistence.repository.UserCompanyRepository;
 
 @Service
 public class CompanyService {

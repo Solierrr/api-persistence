@@ -1,6 +1,6 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.DayWeek;
+import com.solaria.persistence.domain.enums.DayWeek;
 import jakarta.persistence.*;
 import lombok.*;
 

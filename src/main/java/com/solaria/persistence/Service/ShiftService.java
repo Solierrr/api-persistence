@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,14 +6,14 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.ShiftRequestDTO;
-import com.solaria.persistence.DTO.Response.ShiftResponseDTO;
-import com.solaria.persistence.Domain.Entity.Shift;
-import com.solaria.persistence.Domain.Entity.Technician;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ShiftRepository;
-import com.solaria.persistence.Repository.TechnicianRepository;
+import com.solaria.persistence.dto.request.ShiftRequestDTO;
+import com.solaria.persistence.dto.response.ShiftResponseDTO;
+import com.solaria.persistence.domain.entity.Shift;
+import com.solaria.persistence.domain.entity.Technician;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ShiftRepository;
+import com.solaria.persistence.repository.TechnicianRepository;
 
 @Service
 public class ShiftService {

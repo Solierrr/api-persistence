@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,20 +6,18 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.ContactResponseDTO;
-import com.solaria.persistence.DTO.Response.PersonResponseDTO;
-import com.solaria.persistence.DTO.Request.TechnicianRequestDTO;
-import com.solaria.persistence.DTO.Response.TechnicianResponseDTO;
-import com.solaria.persistence.Domain.Entity.Contact;
-import com.solaria.persistence.Domain.Entity.Person;
-import com.solaria.persistence.Domain.Entity.Technician;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.PersonRepository;
-import com.solaria.persistence.Repository.TechnicianAffiliationRepository;
-import com.solaria.persistence.Repository.TechnicianRepository;
+import com.solaria.persistence.dto.response.ContactResponseDTO;
+import com.solaria.persistence.dto.response.PersonResponseDTO;
+import com.solaria.persistence.dto.request.TechnicianRequestDTO;
+import com.solaria.persistence.dto.response.TechnicianResponseDTO;
+import com.solaria.persistence.domain.entity.Contact;
+import com.solaria.persistence.domain.entity.Person;
+import com.solaria.persistence.domain.entity.Technician;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.PersonRepository;
+import com.solaria.persistence.repository.TechnicianRepository;
 
 
 @Service

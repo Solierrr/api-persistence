@@ -1,7 +1,7 @@
-package com.solaria.persistence.Util;
+package com.solaria.persistence.util;
 
 /**
- * Expressões REGEX, Usadas em @Pattern nos Request DTOs.
+ * Expressões REGEX, Usadas em @Pattern nos request DTOs.
  */
 public final class RegexValidator {
 

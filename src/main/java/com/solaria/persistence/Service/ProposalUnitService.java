@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,22 +6,22 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.AddressResponseDTO;
-import com.solaria.persistence.DTO.Response.LocalUnitResponseDTO;
-import com.solaria.persistence.DTO.Request.ProposalUnitRequestDTO;
-import com.solaria.persistence.DTO.Response.ProposalUnitResponseDTO;
-import com.solaria.persistence.Domain.Entity.Address;
-import com.solaria.persistence.Domain.Entity.LocalUnit;
-import com.solaria.persistence.Domain.Entity.ProposalItem;
-import com.solaria.persistence.Domain.Entity.ProposalUnit;
-import com.solaria.persistence.Domain.enums.ProposalStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Exception.UnauthorizedAccessException;
-import com.solaria.persistence.Repository.LocalUnitRepository;
-import com.solaria.persistence.Repository.ProposalItemRepository;
-import com.solaria.persistence.Repository.ProposalUnitRepository;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.LocalUnitResponseDTO;
+import com.solaria.persistence.dto.request.ProposalUnitRequestDTO;
+import com.solaria.persistence.dto.response.ProposalUnitResponseDTO;
+import com.solaria.persistence.domain.entity.Address;
+import com.solaria.persistence.domain.entity.LocalUnit;
+import com.solaria.persistence.domain.entity.ProposalItem;
+import com.solaria.persistence.domain.entity.ProposalUnit;
+import com.solaria.persistence.domain.enums.ProposalStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
+import com.solaria.persistence.repository.LocalUnitRepository;
+import com.solaria.persistence.repository.ProposalItemRepository;
+import com.solaria.persistence.repository.ProposalUnitRepository;
 
 @Service
 public class ProposalUnitService {

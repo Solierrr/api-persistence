@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.GeolocalizationRequestDTO;
-import com.solaria.persistence.DTO.Response.GeolocalizationResponseDTO;
-import com.solaria.persistence.Domain.Entity.Address;
-import com.solaria.persistence.Domain.Entity.Geolocalization;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.AddressRepository;
-import com.solaria.persistence.Repository.GeolocalizationRepository;
+import com.solaria.persistence.dto.request.GeolocalizationRequestDTO;
+import com.solaria.persistence.dto.response.GeolocalizationResponseDTO;
+import com.solaria.persistence.domain.entity.Address;
+import com.solaria.persistence.domain.entity.Geolocalization;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.AddressRepository;
+import com.solaria.persistence.repository.GeolocalizationRepository;
 
 @Service
 public class GeolocalizationService {

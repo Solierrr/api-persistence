@@ -1,4 +1,4 @@
-package com.solaria.persistence.Domain.enums;
+package com.solaria.persistence.domain.enums;
 
 public enum ProposalStatus {
     AWAITING_SUPPLIER,

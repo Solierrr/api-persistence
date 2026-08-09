@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.UnitSpecificationsRequestDTO;
-import com.solaria.persistence.DTO.Response.UnitSpecificationsResponseDTO;
-import com.solaria.persistence.Domain.Entity.LocalUnit;
-import com.solaria.persistence.Domain.Entity.UnitSpecifications;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.LocalUnitRepository;
-import com.solaria.persistence.Repository.UnitSpecificationsRepository;
+import com.solaria.persistence.dto.request.UnitSpecificationsRequestDTO;
+import com.solaria.persistence.dto.response.UnitSpecificationsResponseDTO;
+import com.solaria.persistence.domain.entity.LocalUnit;
+import com.solaria.persistence.domain.entity.UnitSpecifications;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.LocalUnitRepository;
+import com.solaria.persistence.repository.UnitSpecificationsRepository;
 
 @Service
 public class UnitSpecificationsService {

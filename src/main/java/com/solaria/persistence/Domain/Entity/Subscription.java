@@ -1,6 +1,6 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.SubscriptionStatus;
+import com.solaria.persistence.domain.enums.SubscriptionStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -9,19 +9,19 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.CompanyPlansResponseDTO;
-import com.solaria.persistence.DTO.Request.SubscriptionRequestDTO;
-import com.solaria.persistence.DTO.Response.SubscriptionResponseDTO;
-import com.solaria.persistence.Domain.Entity.CompanyPlans;
-import com.solaria.persistence.Domain.Entity.Subscription;
-import com.solaria.persistence.Domain.Entity.Supplier;
-import com.solaria.persistence.Domain.enums.SubscriptionStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CompanyPlansRepository;
-import com.solaria.persistence.Repository.SubscriptionRepository;
-import com.solaria.persistence.Repository.SupplierRepository;
+import com.solaria.persistence.dto.response.CompanyPlansResponseDTO;
+import com.solaria.persistence.dto.request.SubscriptionRequestDTO;
+import com.solaria.persistence.dto.response.SubscriptionResponseDTO;
+import com.solaria.persistence.domain.entity.CompanyPlans;
+import com.solaria.persistence.domain.entity.Subscription;
+import com.solaria.persistence.domain.entity.Supplier;
+import com.solaria.persistence.domain.enums.SubscriptionStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CompanyPlansRepository;
+import com.solaria.persistence.repository.SubscriptionRepository;
+import com.solaria.persistence.repository.SupplierRepository;
 
 @Service
 public class SubscriptionService {

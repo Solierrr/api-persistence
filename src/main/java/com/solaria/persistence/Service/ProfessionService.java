@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ProfessionRequestDTO;
-import com.solaria.persistence.DTO.Response.ProfessionResponseDTO;
-import com.solaria.persistence.Domain.Entity.Profession;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ProfessionRepository;
-import com.solaria.persistence.Repository.ProfessionalRegistrationRepository;
+import com.solaria.persistence.dto.request.ProfessionRequestDTO;
+import com.solaria.persistence.dto.response.ProfessionResponseDTO;
+import com.solaria.persistence.domain.entity.Profession;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ProfessionRepository;
+import com.solaria.persistence.repository.ProfessionalRegistrationRepository;
 
 @Service
 public class ProfessionService {

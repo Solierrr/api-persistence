@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,18 +6,18 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.TechnicalProjectRequestDTO;
-import com.solaria.persistence.DTO.Response.TechnicalProjectResponseDTO;
-import com.solaria.persistence.Domain.Entity.LocalUnit;
-import com.solaria.persistence.Domain.Entity.Requester;
-import com.solaria.persistence.Domain.Entity.TechnicalProject;
-import com.solaria.persistence.Domain.enums.ServiceStatus;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.LocalUnitRepository;
-import com.solaria.persistence.Repository.RequesterRepository;
-import com.solaria.persistence.Repository.TechnicalProjectRepository;
-import com.solaria.persistence.Repository.TechnicalServiceRepository;
+import com.solaria.persistence.dto.request.TechnicalProjectRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalProjectResponseDTO;
+import com.solaria.persistence.domain.entity.LocalUnit;
+import com.solaria.persistence.domain.entity.Requester;
+import com.solaria.persistence.domain.entity.TechnicalProject;
+import com.solaria.persistence.domain.enums.ServiceStatus;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.LocalUnitRepository;
+import com.solaria.persistence.repository.RequesterRepository;
+import com.solaria.persistence.repository.TechnicalProjectRepository;
+import com.solaria.persistence.repository.TechnicalServiceRepository;
 
 @Service
 public class TechnicalProjectService {

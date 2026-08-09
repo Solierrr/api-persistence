@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
-import com.solaria.persistence.Domain.enums.PlanCycle;
+import com.solaria.persistence.domain.enums.PlanCycle;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.CompanyPlansRequestDTO;
-import com.solaria.persistence.DTO.Response.CompanyPlansResponseDTO;
-import com.solaria.persistence.Domain.Entity.CompanyPlans;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CompanyPlansRepository;
-import com.solaria.persistence.Repository.SubscriptionRepository;
+import com.solaria.persistence.dto.request.CompanyPlansRequestDTO;
+import com.solaria.persistence.dto.response.CompanyPlansResponseDTO;
+import com.solaria.persistence.domain.entity.CompanyPlans;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CompanyPlansRepository;
+import com.solaria.persistence.repository.SubscriptionRepository;
 
 @Service
 public class CompanyPlansService {

@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
-import com.solaria.persistence.Domain.enums.DayWeek;
+import com.solaria.persistence.domain.enums.DayWeek;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

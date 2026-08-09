@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ServiceContractRequestDTO;
-import com.solaria.persistence.DTO.Response.ServiceContractResponseDTO;
-import com.solaria.persistence.Domain.Entity.ServiceContract;
-import com.solaria.persistence.Domain.Entity.TechnicalService;
-import com.solaria.persistence.Domain.enums.ServiceStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ServiceContractRepository;
-import com.solaria.persistence.Repository.TechnicalServiceRepository;
+import com.solaria.persistence.dto.request.ServiceContractRequestDTO;
+import com.solaria.persistence.dto.response.ServiceContractResponseDTO;
+import com.solaria.persistence.domain.entity.ServiceContract;
+import com.solaria.persistence.domain.entity.TechnicalService;
+import com.solaria.persistence.domain.enums.ServiceStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ServiceContractRepository;
+import com.solaria.persistence.repository.TechnicalServiceRepository;
 
 
 @Service

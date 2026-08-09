@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ProposalRequestDTO;
-import com.solaria.persistence.DTO.Response.ProposalResponseDTO;
-import com.solaria.persistence.Domain.Entity.Inventory;
-import com.solaria.persistence.Domain.Entity.Offer;
-import com.solaria.persistence.Domain.Entity.Proposal;
-import com.solaria.persistence.Domain.Entity.ProposalItem;
-import com.solaria.persistence.Domain.Entity.Requester;
-import com.solaria.persistence.Domain.enums.ProposalStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.InventoryRepository;
-import com.solaria.persistence.Repository.OfferRepository;
-import com.solaria.persistence.Repository.ProposalItemRepository;
-import com.solaria.persistence.Repository.ProposalRepository;
-import com.solaria.persistence.Repository.RequesterRepository;
+import com.solaria.persistence.dto.request.ProposalRequestDTO;
+import com.solaria.persistence.dto.response.ProposalResponseDTO;
+import com.solaria.persistence.domain.entity.Inventory;
+import com.solaria.persistence.domain.entity.Offer;
+import com.solaria.persistence.domain.entity.Proposal;
+import com.solaria.persistence.domain.entity.ProposalItem;
+import com.solaria.persistence.domain.entity.Requester;
+import com.solaria.persistence.domain.enums.ProposalStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.InventoryRepository;
+import com.solaria.persistence.repository.OfferRepository;
+import com.solaria.persistence.repository.ProposalItemRepository;
+import com.solaria.persistence.repository.ProposalRepository;
+import com.solaria.persistence.repository.RequesterRepository;
 
 @Service
 public class ProposalService {

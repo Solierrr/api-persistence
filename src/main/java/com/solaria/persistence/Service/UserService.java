@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.UserRequestDTO;
-import com.solaria.persistence.DTO.Response.UserResponseDTO;
-import com.solaria.persistence.Domain.Entity.User;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.PersonRepository;
-import com.solaria.persistence.Repository.UserCompanyRepository;
-import com.solaria.persistence.Repository.UserRepository;
+import com.solaria.persistence.dto.request.UserRequestDTO;
+import com.solaria.persistence.dto.response.UserResponseDTO;
+import com.solaria.persistence.domain.entity.User;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.PersonRepository;
+import com.solaria.persistence.repository.UserCompanyRepository;
+import com.solaria.persistence.repository.UserRepository;
 
 
 @Service

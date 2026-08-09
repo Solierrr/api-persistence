@@ -1,11 +1,11 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.solaria.persistence.Domain.Entity.PositionPermission;
+import com.solaria.persistence.domain.entity.PositionPermission;
 
 
 public interface PositionPermissionRepository extends JpaRepository<PositionPermission, UUID> {

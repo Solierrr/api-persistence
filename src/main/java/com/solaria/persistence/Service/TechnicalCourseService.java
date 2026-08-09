@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,13 +6,13 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.TechnicalCourseRequestDTO;
-import com.solaria.persistence.DTO.Response.TechnicalCourseResponseDTO;
-import com.solaria.persistence.Domain.Entity.Company;
-import com.solaria.persistence.Domain.Entity.TechnicalCourse;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CompanyRepository;
-import com.solaria.persistence.Repository.TechnicalCourseRepository;
+import com.solaria.persistence.dto.request.TechnicalCourseRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalCourseResponseDTO;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.entity.TechnicalCourse;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CompanyRepository;
+import com.solaria.persistence.repository.TechnicalCourseRepository;
 
 @Service
 public class TechnicalCourseService {

@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.TechnicalServiceRequestDTO;
-import com.solaria.persistence.DTO.Response.TechnicalServiceResponseDTO;
-import com.solaria.persistence.Domain.Entity.TechnicalProject;
-import com.solaria.persistence.Domain.Entity.TechnicalService;
-import com.solaria.persistence.Domain.enums.ServiceStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ServiceExecutorRepository;
-import com.solaria.persistence.Repository.TechnicalProjectRepository;
-import com.solaria.persistence.Repository.TechnicalServiceRepository;
+import com.solaria.persistence.dto.request.TechnicalServiceRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalServiceResponseDTO;
+import com.solaria.persistence.domain.entity.TechnicalProject;
+import com.solaria.persistence.domain.entity.TechnicalService;
+import com.solaria.persistence.domain.enums.ServiceStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ServiceExecutorRepository;
+import com.solaria.persistence.repository.TechnicalProjectRepository;
+import com.solaria.persistence.repository.TechnicalServiceRepository;
 
 @Service
 public class TechnicalServiceService {

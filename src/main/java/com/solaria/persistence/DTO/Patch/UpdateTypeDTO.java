@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Patch;
+package com.solaria.persistence.dto.patch;
 
-import com.solaria.persistence.Domain.enums.TechnicalAffiliationType;
+import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;

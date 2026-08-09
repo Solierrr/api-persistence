@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,21 +7,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Response.PositionResponseDTO;
-import com.solaria.persistence.DTO.Request.UserCompanyRequestDTO;
-import com.solaria.persistence.DTO.Response.UserCompanyResponseDTO;
-import com.solaria.persistence.Domain.Entity.Company;
-import com.solaria.persistence.Domain.Entity.Position;
-import com.solaria.persistence.Domain.Entity.User;
-import com.solaria.persistence.Domain.Entity.UserCompany;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Exception.UnauthorizedAccessException;
-import com.solaria.persistence.Repository.CompanyPositionsRepository;
-import com.solaria.persistence.Repository.CompanyRepository;
-import com.solaria.persistence.Repository.PositionRepository;
-import com.solaria.persistence.Repository.UserCompanyRepository;
-import com.solaria.persistence.Repository.UserRepository;
+import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
+import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.entity.Position;
+import com.solaria.persistence.domain.entity.User;
+import com.solaria.persistence.domain.entity.UserCompany;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
+import com.solaria.persistence.repository.CompanyPositionsRepository;
+import com.solaria.persistence.repository.CompanyRepository;
+import com.solaria.persistence.repository.PositionRepository;
+import com.solaria.persistence.repository.UserCompanyRepository;
+import com.solaria.persistence.repository.UserRepository;
 
 
 @Service

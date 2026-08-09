@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
-import com.solaria.persistence.Domain.enums.PaymentMethod;
+import com.solaria.persistence.domain.enums.PaymentMethod;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

@@ -1,6 +1,6 @@
-package com.solaria.persistence.DTO.Response;
+package com.solaria.persistence.dto.response;
 
-import com.solaria.persistence.Domain.enums.ModelStatus;
+import com.solaria.persistence.domain.enums.ModelStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

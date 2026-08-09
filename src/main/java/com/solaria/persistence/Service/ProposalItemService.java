@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -8,21 +8,21 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.ModelResponseDTO;
-import com.solaria.persistence.DTO.Response.OfferResponseDTO;
-import com.solaria.persistence.DTO.Request.ProposalItemRequestDTO;
-import com.solaria.persistence.DTO.Response.ProposalItemResponseDTO;
-import com.solaria.persistence.Domain.Entity.Model;
-import com.solaria.persistence.Domain.Entity.Offer;
-import com.solaria.persistence.Domain.Entity.Proposal;
-import com.solaria.persistence.Domain.Entity.ProposalItem;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.OfferRepository;
-import com.solaria.persistence.Repository.ProposalItemRepository;
-import com.solaria.persistence.Repository.ProposalRepository;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
+import com.solaria.persistence.dto.request.ProposalItemRequestDTO;
+import com.solaria.persistence.dto.response.ProposalItemResponseDTO;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.entity.Offer;
+import com.solaria.persistence.domain.entity.Proposal;
+import com.solaria.persistence.domain.entity.ProposalItem;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.OfferRepository;
+import com.solaria.persistence.repository.ProposalItemRepository;
+import com.solaria.persistence.repository.ProposalRepository;
 
 @Service
 public class ProposalItemService {

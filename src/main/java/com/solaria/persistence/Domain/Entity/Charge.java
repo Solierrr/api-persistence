@@ -1,7 +1,7 @@
-package com.solaria.persistence.Domain.Entity;
+package com.solaria.persistence.domain.entity;
 
-import com.solaria.persistence.Domain.enums.BillingStatus;
-import com.solaria.persistence.Domain.enums.PaymentMethod;
+import com.solaria.persistence.domain.enums.BillingStatus;
+import com.solaria.persistence.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 

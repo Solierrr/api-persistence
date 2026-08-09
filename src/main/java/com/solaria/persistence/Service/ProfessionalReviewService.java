@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -8,22 +8,22 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.ProfessionalReviewRequestDTO;
-import com.solaria.persistence.DTO.Response.ProfessionalReviewResponseDTO;
-import com.solaria.persistence.Domain.Entity.ProfessionalReview;
-import com.solaria.persistence.Domain.Entity.Technician;
-import com.solaria.persistence.Domain.Entity.TechnicalService;
-import com.solaria.persistence.Domain.Entity.User;
-import com.solaria.persistence.Domain.enums.ServiceStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ProfessionalReviewRepository;
-import com.solaria.persistence.Repository.ServiceExecutorRepository;
-import com.solaria.persistence.Repository.TechnicalServiceRepository;
-import com.solaria.persistence.Repository.TechnicianRepository;
-import com.solaria.persistence.Repository.UserRepository;
+import com.solaria.persistence.dto.request.ProfessionalReviewRequestDTO;
+import com.solaria.persistence.dto.response.ProfessionalReviewResponseDTO;
+import com.solaria.persistence.domain.entity.ProfessionalReview;
+import com.solaria.persistence.domain.entity.Technician;
+import com.solaria.persistence.domain.entity.TechnicalService;
+import com.solaria.persistence.domain.entity.User;
+import com.solaria.persistence.domain.enums.ServiceStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ProfessionalReviewRepository;
+import com.solaria.persistence.repository.ServiceExecutorRepository;
+import com.solaria.persistence.repository.TechnicalServiceRepository;
+import com.solaria.persistence.repository.TechnicianRepository;
+import com.solaria.persistence.repository.UserRepository;
 
 @Service
 public class ProfessionalReviewService {

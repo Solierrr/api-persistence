@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,20 +6,20 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.InventoryRequestDTO;
-import com.solaria.persistence.DTO.Response.InventoryResponseDTO;
-import com.solaria.persistence.DTO.Response.ModelResponseDTO;
-import com.solaria.persistence.Domain.Entity.Inventory;
-import com.solaria.persistence.Domain.Entity.Model;
-import com.solaria.persistence.Domain.Entity.Supplier;
-import com.solaria.persistence.Domain.enums.SupplierStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.InventoryRepository;
-import com.solaria.persistence.Repository.ModelRepository;
-import com.solaria.persistence.Repository.SupplierRepository;
+import com.solaria.persistence.dto.request.InventoryRequestDTO;
+import com.solaria.persistence.dto.response.InventoryResponseDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.domain.entity.Inventory;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.entity.Supplier;
+import com.solaria.persistence.domain.enums.SupplierStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.InventoryRepository;
+import com.solaria.persistence.repository.ModelRepository;
+import com.solaria.persistence.repository.SupplierRepository;
 
 @Service
 public class InventoryService {

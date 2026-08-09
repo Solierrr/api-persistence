@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO.Response;
+package com.solaria.persistence.dto.response;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

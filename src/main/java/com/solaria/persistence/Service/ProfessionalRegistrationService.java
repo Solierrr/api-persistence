@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,17 +6,17 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Request.ProfessionalRegistrationRequestDTO;
-import com.solaria.persistence.DTO.Response.ProfessionalRegistrationResponseDTO;
-import com.solaria.persistence.Domain.Entity.ProfessionalRegistration;
-import com.solaria.persistence.Domain.Entity.Profession;
-import com.solaria.persistence.Domain.Entity.Technician;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.CertificationRecordRepository;
-import com.solaria.persistence.Repository.ProfessionRepository;
-import com.solaria.persistence.Repository.ProfessionalRegistrationRepository;
-import com.solaria.persistence.Repository.TechnicianRepository;
+import com.solaria.persistence.dto.request.ProfessionalRegistrationRequestDTO;
+import com.solaria.persistence.dto.response.ProfessionalRegistrationResponseDTO;
+import com.solaria.persistence.domain.entity.ProfessionalRegistration;
+import com.solaria.persistence.domain.entity.Profession;
+import com.solaria.persistence.domain.entity.Technician;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.CertificationRecordRepository;
+import com.solaria.persistence.repository.ProfessionRepository;
+import com.solaria.persistence.repository.ProfessionalRegistrationRepository;
+import com.solaria.persistence.repository.TechnicianRepository;
 
 
 @Service

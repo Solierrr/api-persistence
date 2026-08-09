@@ -1,6 +1,6 @@
-package com.solaria.persistence.Repository;
+package com.solaria.persistence.repository;
 
-import com.solaria.persistence.Domain.Entity.Subscription;
+import com.solaria.persistence.domain.entity.Subscription;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -36,7 +36,7 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, UUID
     boolean existsByPlanId(UUID planId);
 
     @org.springframework.data.jpa.repository.Query("SELECT CASE WHEN COUNT(s) > 0 THEN true ELSE false END " +
-            "FROM Subscription s WHERE s.supplier.id = :supplierId AND s.status = com.solaria.persistence.Domain.enums.SubscriptionStatus.PAID " +
+            "FROM Subscription s WHERE s.supplier.id = :supplierId AND s.status = com.solaria.persistence.domain.enums.SubscriptionStatus.PAID " +
             "AND (s.endDate IS NULL OR s.endDate > :now)")
     boolean hasActiveSubscription(@Param("supplierId") UUID supplierId, @Param("now") OffsetDateTime now);
 }

@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO.Request;
+package com.solaria.persistence.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

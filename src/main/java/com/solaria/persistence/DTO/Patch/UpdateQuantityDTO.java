@@ -1,4 +1,4 @@
-package com.solaria.persistence.DTO.Patch;
+package com.solaria.persistence.dto.patch;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

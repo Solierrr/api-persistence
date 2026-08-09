@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-import com.solaria.persistence.DTO.Request.ServiceExecutorRequestDTO;
-import com.solaria.persistence.DTO.Response.ServiceExecutorResponseDTO;
-import com.solaria.persistence.DTO.Response.TechnicianAffiliationResponseDTO;
-import com.solaria.persistence.Domain.Entity.ServiceExecutor;
-import com.solaria.persistence.Domain.Entity.TechnicalService;
-import com.solaria.persistence.Domain.Entity.TechnicianAffiliation;
-import com.solaria.persistence.Domain.enums.ServiceStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.DuplicateResourceException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ServiceExecutorRepository;
-import com.solaria.persistence.Repository.TechnicalServiceRepository;
-import com.solaria.persistence.Repository.TechnicianAffiliationRepository;
+import com.solaria.persistence.dto.request.ServiceExecutorRequestDTO;
+import com.solaria.persistence.dto.response.ServiceExecutorResponseDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
+import com.solaria.persistence.domain.entity.ServiceExecutor;
+import com.solaria.persistence.domain.entity.TechnicalService;
+import com.solaria.persistence.domain.entity.TechnicianAffiliation;
+import com.solaria.persistence.domain.enums.ServiceStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ServiceExecutorRepository;
+import com.solaria.persistence.repository.TechnicalServiceRepository;
+import com.solaria.persistence.repository.TechnicianAffiliationRepository;
 
 
 @Service

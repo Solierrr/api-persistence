@@ -1,4 +1,4 @@
-package com.solaria.persistence.Service;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -8,22 +8,22 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.solaria.persistence.DTO.Response.ModelResponseDTO;
-import com.solaria.persistence.DTO.Request.OfferRequestDTO;
-import com.solaria.persistence.DTO.Response.OfferResponseDTO;
-import com.solaria.persistence.Domain.Entity.Model;
-import com.solaria.persistence.Domain.Entity.Offer;
-import com.solaria.persistence.Domain.Entity.Supplier;
-import com.solaria.persistence.Domain.enums.ModelStatus;
-import com.solaria.persistence.Domain.enums.SupplierStatus;
-import com.solaria.persistence.Exception.BusinessRuleException;
-import com.solaria.persistence.Exception.InvalidFieldException;
-import com.solaria.persistence.Exception.ResourceInUseException;
-import com.solaria.persistence.Exception.ResourceNotFoundException;
-import com.solaria.persistence.Repository.ModelRepository;
-import com.solaria.persistence.Repository.OfferRepository;
-import com.solaria.persistence.Repository.ProposalItemRepository;
-import com.solaria.persistence.Repository.SupplierRepository;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.request.OfferRequestDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.entity.Offer;
+import com.solaria.persistence.domain.entity.Supplier;
+import com.solaria.persistence.domain.enums.ModelStatus;
+import com.solaria.persistence.domain.enums.SupplierStatus;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.repository.ModelRepository;
+import com.solaria.persistence.repository.OfferRepository;
+import com.solaria.persistence.repository.ProposalItemRepository;
+import com.solaria.persistence.repository.SupplierRepository;
 
 @Service
 public class OfferService {
