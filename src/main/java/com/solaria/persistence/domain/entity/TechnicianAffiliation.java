@@ -1,11 +1,10 @@
 package com.solaria.persistence.domain.entity;
 
+import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
-
-import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
 
 @Entity
 @Table(name = "technician_affiliation")
@@ -19,8 +18,9 @@ public class TechnicianAffiliation {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_company", nullable = false)
+    @JoinColumn(name = "fk_company")
     private Company company;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,4 +30,7 @@ public class TechnicianAffiliation {
     @Enumerated(EnumType.STRING)
     @Column(name = "affiliation_type", nullable = false)
     private TechnicalAffiliationType affiliationType;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active = true;
 }

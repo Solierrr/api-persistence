@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "requester")
 @Getter
@@ -20,4 +21,7 @@ public class Requester {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_company", nullable = false)
     private Company company;
+
+    @Column(name = "business_type", length = 40)
+    private String businessType;
 }

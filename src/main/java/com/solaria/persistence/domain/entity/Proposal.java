@@ -1,5 +1,6 @@
 package com.solaria.persistence.domain.entity;
 
+import com.solaria.persistence.domain.enums.ProposalStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,7 +8,6 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-import com.solaria.persistence.domain.enums.ProposalStatus;
 
 @Entity
 @Table(name = "proposal")
@@ -27,7 +27,7 @@ public class Proposal {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private ProposalStatus status = ProposalStatus.OPEN;
+    private ProposalStatus status = ProposalStatus.AWAITING_SUPPLIER;
 
     @Column(name = "notes")
     private String notes;

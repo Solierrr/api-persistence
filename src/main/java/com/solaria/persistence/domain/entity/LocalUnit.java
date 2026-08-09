@@ -1,11 +1,10 @@
 package com.solaria.persistence.domain.entity;
 
+import com.solaria.persistence.domain.enums.LocationType;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
-
-import com.solaria.persistence.domain.enums.LocationType;
 
 @Entity
 @Table(name = "local_unit")
@@ -24,7 +23,7 @@ public class LocalUnit {
     private Requester requester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_address", nullable = false)
+    @JoinColumn(name = "fk_address")
     private Address address;
 
     @Column(name = "complement")

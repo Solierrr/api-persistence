@@ -1,14 +1,14 @@
 package com.solaria.persistence.domain.entity;
 
+import com.solaria.persistence.domain.enums.BillingStatus;
+import com.solaria.persistence.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
-
-import com.solaria.persistence.domain.enums.BillingStatus;
-import com.solaria.persistence.domain.enums.PaymentMethod;
 
 @Entity
 @Table(name = "charge")
@@ -36,6 +36,9 @@ public class Charge {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private BillingStatus status = BillingStatus.PENDING;
+
+    @Column(name = "due_date", nullable = false)
+    private LocalDate dueDate;
 
     @Column(name = "payment_date")
     private OffsetDateTime paymentDate;

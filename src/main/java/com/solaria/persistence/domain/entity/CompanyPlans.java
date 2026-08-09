@@ -1,12 +1,11 @@
 package com.solaria.persistence.domain.entity;
 
+import com.solaria.persistence.domain.enums.PlanCycle;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
-
-import com.solaria.persistence.domain.enums.PlanCycle;
 
 @Entity
 @Table(name = "company_plans")

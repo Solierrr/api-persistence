@@ -28,7 +28,6 @@ public class Position {
     @Column(name = "name", length = 12, nullable = false)
     private String name;
 
-    // P-01: campo ausente na entidade original; adicionado para espelhar PositionRequestDTO/PositionResponseDTO
     @Column(name = "accesses", nullable = false)
     private String accesses;
 

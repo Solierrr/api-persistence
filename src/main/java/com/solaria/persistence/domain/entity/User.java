@@ -17,6 +17,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(name = "auth_id", nullable = false, unique = true)
+    private UUID auth_id;
+
     @Column(name = "avatar")
     private String avatar;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active = true;
 }
