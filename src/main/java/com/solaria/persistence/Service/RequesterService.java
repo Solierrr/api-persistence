@@ -21,7 +21,6 @@ import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;
-import com.solaria.persistence.repository.LocalUnitRepository;
 import com.solaria.persistence.repository.ProposalRepository;
 import com.solaria.persistence.repository.RequesterRepository;
 import com.solaria.persistence.repository.SupplierRepository;
@@ -33,20 +32,17 @@ public class RequesterService {
     private final RequesterRepository requesterRepository;
     private final CompanyRepository companyRepository;
     private final SupplierRepository supplierRepository;
-    private final LocalUnitRepository localUnitRepository;
     private final ProposalRepository proposalRepository;
     private final TechnicalProjectRepository technicalProjectRepository;
 
     public RequesterService(RequesterRepository requesterRepository,
                             CompanyRepository companyRepository,
                             SupplierRepository supplierRepository,
-                            LocalUnitRepository localUnitRepository,
                             ProposalRepository proposalRepository,
                             TechnicalProjectRepository technicalProjectRepository) {
         this.requesterRepository = requesterRepository;
         this.companyRepository = companyRepository;
         this.supplierRepository = supplierRepository;
-        this.localUnitRepository = localUnitRepository;
         this.proposalRepository = proposalRepository;
         this.technicalProjectRepository = technicalProjectRepository;
     }

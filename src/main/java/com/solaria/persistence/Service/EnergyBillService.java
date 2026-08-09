@@ -56,6 +56,30 @@ public class EnergyBillService {
         return toResponse(energyBillRepository.save(energyBill));
     }
 
+    @Transactional
+    public EnergyBillResponseDTO update(UUID id, EnergyBillRequestDTO dto) {
+        if (dto.getConsumption() == null || dto.getConsumption().compareTo(ZERO) <= 0) {
+            throw new InvalidFieldException("Consumo inválido: " + dto.getConsumption());
+        }
+        if (dto.getPrice() == null || dto.getPrice().compareTo(ZERO) < 0) {
+            throw new InvalidFieldException("Preço inválido: " + dto.getPrice());
+        }
+
+        EnergyBill energyBill = energyBillRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Conta de Energia não encontrada com ID: " + id));
+
+        LocalUnit localUnit = localUnitRepository.findById(dto.getLocalUnitId())
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Unidade Local não encontrada com ID: " + dto.getLocalUnitId()));
+
+        energyBill.setLocalUnit(localUnit);
+        energyBill.setConsumption(dto.getConsumption());
+        energyBill.setPrice(dto.getPrice());
+
+        return toResponse(energyBillRepository.save(energyBill));
+    }
+
     @Transactional(readOnly = true)
     public EnergyBillResponseDTO findById(UUID id) {
         EnergyBill energyBill = energyBillRepository.findById(id)
