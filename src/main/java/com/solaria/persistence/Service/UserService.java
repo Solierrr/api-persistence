@@ -87,15 +87,6 @@ public class UserService {
                 .toList();
     }
 
-    // Equivalente em lote/automático ao efeito colateral de FluxLogService.record: marca
-    // active=false todo usuário sem ação registrada em flux_log nos últimos inactiveDays dias
-    // (sp_deactivate_inactive_users, schema-v3-business-logic.sql). Requer essa procedure já
-    // aplicada manualmente no Postgres.
-    @Transactional
-    public void deactivateInactiveUsers(int inactiveDays) {
-        userRepository.callDeactivateInactiveUsers(inactiveDays);
-    }
-
     private UserResponseDTO toResponse(User entity) {
         UserResponseDTO response = objectMapper.convertValue(entity, UserResponseDTO.class);
         response.setAuthId(entity.getAuth_id());

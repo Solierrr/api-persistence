@@ -126,11 +126,6 @@ public class SubscriptionService {
         return subscriptionRepository.hasActiveSubscription(supplierId, OffsetDateTime.now());
     }
 
-    @Transactional
-    public void markOverdueSubscriptionsInDebt() {
-        subscriptionRepository.callMarkSubscriptionsInDebt();
-    }
-
     private Subscription findEntityById(UUID id) {
         return subscriptionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(

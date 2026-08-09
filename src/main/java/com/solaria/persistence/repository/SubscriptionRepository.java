@@ -23,10 +23,6 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, UUID
                                          @Param("paymentMethod") String paymentMethod);
 
 
-    @Modifying
-    @Query(value = "CALL sp_mark_subscriptions_in_debt()", nativeQuery = true)
-    void callMarkSubscriptionsInDebt();
-
     List<Subscription> findBySupplier_Company_Id(UUID companyId);
 
     Optional<Subscription> findByIdAndSupplier_Company_Id(UUID id, UUID companyId);
