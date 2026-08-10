@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.ProposalItemRequestDTO;
-import com.solaria.persistence.dto.response.ProposalItemResponseDTO;
+import com.solaria.persistence.dto3.request.ProposalItemRequestDTO;
+import com.solaria.persistence.dto3.response.ProposalItemResponseDTO;
 import com.solaria.persistence.openapi.ProposalItemOpenApi;
 import com.solaria.persistence.service.ProposalItemService;
 

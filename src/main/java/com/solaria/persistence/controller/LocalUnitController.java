@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.patch.UpdateLocalUnitAddressIdDTO;
-import com.solaria.persistence.dto.request.LocalUnitRequestDTO;
-import com.solaria.persistence.dto.response.LocalUnitResponseDTO;
+import com.solaria.persistence.dto3.patch.UpdateLocalUnitAddressIdDTO;
+import com.solaria.persistence.dto3.request.LocalUnitRequestDTO;
+import com.solaria.persistence.dto3.response.LocalUnitResponseDTO;
 import com.solaria.persistence.openapi.LocalUnitOpenApi;
 import com.solaria.persistence.service.LocalUnitService;
 

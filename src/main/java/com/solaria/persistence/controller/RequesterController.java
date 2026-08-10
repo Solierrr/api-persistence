@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.RequesterRequestDTO;
-import com.solaria.persistence.dto.response.RequesterResponseDTO;
+import com.solaria.persistence.dto3.request.RequesterRequestDTO;
+import com.solaria.persistence.dto3.response.RequesterResponseDTO;
 import com.solaria.persistence.openapi.RequesterOpenApi;
 import com.solaria.persistence.service.RequesterService;
 

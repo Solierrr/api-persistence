@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.http.ResponseEntity;
 
 import com.solaria.persistence.domain.enums.PaymentMethod;
-import com.solaria.persistence.dto.request.ChargeRequestDTO;
-import com.solaria.persistence.dto.response.ChargeResponseDTO;
+import com.solaria.persistence.dto3.request.ChargeRequestDTO;
+import com.solaria.persistence.dto3.response.ChargeResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

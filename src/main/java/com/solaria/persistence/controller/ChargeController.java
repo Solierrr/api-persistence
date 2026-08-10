@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.solaria.persistence.domain.enums.PaymentMethod;
-import com.solaria.persistence.dto.request.ChargeRequestDTO;
-import com.solaria.persistence.dto.response.ChargeResponseDTO;
+import com.solaria.persistence.dto3.request.ChargeRequestDTO;
+import com.solaria.persistence.dto3.response.ChargeResponseDTO;
 import com.solaria.persistence.openapi.ChargeOpenApi;
 import com.solaria.persistence.service.ChargeService;
 
