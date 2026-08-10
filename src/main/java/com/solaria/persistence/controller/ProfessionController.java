@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.ProfessionRequestDTO;
-import com.solaria.persistence.dto.response.ProfessionResponseDTO;
+import com.solaria.persistence.dto3.request.ProfessionRequestDTO;
+import com.solaria.persistence.dto3.response.ProfessionResponseDTO;
 import com.solaria.persistence.openapi.ProfessionOpenApi;
 import com.solaria.persistence.service.ProfessionService;
 

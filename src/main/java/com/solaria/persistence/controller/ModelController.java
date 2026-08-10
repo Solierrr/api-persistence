@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.solaria.persistence.domain.enums.ModelStatus;
-import com.solaria.persistence.dto.request.ModelRequestDTO;
-import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto3.request.ModelRequestDTO;
+import com.solaria.persistence.dto3.response.ModelResponseDTO;
 import com.solaria.persistence.openapi.ModelOpenApi;
 import com.solaria.persistence.service.ModelService;
 

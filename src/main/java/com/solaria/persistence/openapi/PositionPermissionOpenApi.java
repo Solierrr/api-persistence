@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto.request.PositionPermissionRequestDTO;
-import com.solaria.persistence.dto.response.PositionPermissionResponseDTO;
+import com.solaria.persistence.dto3.request.PositionPermissionRequestDTO;
+import com.solaria.persistence.dto3.response.PositionPermissionResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

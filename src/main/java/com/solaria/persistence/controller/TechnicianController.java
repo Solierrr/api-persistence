@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.TechnicianRequestDTO;
-import com.solaria.persistence.dto.response.TechnicianResponseDTO;
+import com.solaria.persistence.dto3.request.TechnicianRequestDTO;
+import com.solaria.persistence.dto3.response.TechnicianResponseDTO;
 import com.solaria.persistence.openapi.TechnicianOpenApi;
 import com.solaria.persistence.service.TechnicianService;
 

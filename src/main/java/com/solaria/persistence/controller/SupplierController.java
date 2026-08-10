@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.SupplierRequestDTO;
-import com.solaria.persistence.dto.response.SupplierResponseDTO;
+import com.solaria.persistence.dto3.request.SupplierRequestDTO;
+import com.solaria.persistence.dto3.response.SupplierResponseDTO;
 import com.solaria.persistence.openapi.SupplierOpenApi;
 import com.solaria.persistence.service.SupplierService;
 

@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto.request.InventoryRequestDTO;
-import com.solaria.persistence.dto.response.InventoryResponseDTO;
-import com.solaria.persistence.dto.patch.UpdateQuantityDTO;
+import com.solaria.persistence.dto3.patch.UpdateQuantityDTO;
+import com.solaria.persistence.dto3.request.InventoryRequestDTO;
+import com.solaria.persistence.dto3.response.InventoryResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

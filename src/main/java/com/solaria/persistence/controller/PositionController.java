@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.PositionRequestDTO;
-import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.dto3.request.PositionRequestDTO;
+import com.solaria.persistence.dto3.response.PositionResponseDTO;
 import com.solaria.persistence.openapi.PositionOpenApi;
 import com.solaria.persistence.service.PositionService;
 

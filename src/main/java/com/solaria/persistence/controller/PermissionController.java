@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.PermissionRequestDTO;
-import com.solaria.persistence.dto.response.PermissionResponseDTO;
+import com.solaria.persistence.dto3.request.PermissionRequestDTO;
+import com.solaria.persistence.dto3.response.PermissionResponseDTO;
 import com.solaria.persistence.openapi.PermissionOpenApi;
 import com.solaria.persistence.service.PermissionService;
 

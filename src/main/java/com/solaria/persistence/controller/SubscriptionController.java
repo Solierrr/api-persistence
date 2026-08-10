@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto.request.SubscriptionRequestDTO;
-import com.solaria.persistence.dto.response.SubscriptionResponseDTO;
+import com.solaria.persistence.dto3.request.SubscriptionRequestDTO;
+import com.solaria.persistence.dto3.response.SubscriptionResponseDTO;
 import com.solaria.persistence.openapi.SubscriptionOpenApi;
 import com.solaria.persistence.service.SubscriptionService;
 
