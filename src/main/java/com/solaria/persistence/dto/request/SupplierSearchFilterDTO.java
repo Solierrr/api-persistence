@@ -1,4 +1,4 @@
-package com.solaria.persistence.dto3.Request;
+package com.solaria.persistence.dto.request;
 
 public class SupplierSearchFilterDTO {
     // TODO: definir os filtros de pesquisa de fornecedores.

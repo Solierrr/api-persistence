@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -13,12 +13,12 @@ import com.solaria.persistence.domain.entity.CompanyPlans;
 import com.solaria.persistence.domain.entity.Subscription;
 import com.solaria.persistence.domain.entity.Supplier;
 import com.solaria.persistence.domain.enums.SubscriptionStatus;
-import com.solaria.persistence.dto3.request.SubscriptionRequestDTO;
-import com.solaria.persistence.dto3.response.CompanyPlansResponseDTO;
-import com.solaria.persistence.dto3.response.SubscriptionResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.SubscriptionRequestDTO;
+import com.solaria.persistence.dto.response.CompanyPlansResponseDTO;
+import com.solaria.persistence.dto.response.SubscriptionResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyPlansRepository;
 import com.solaria.persistence.repository.SubscriptionRepository;
 import com.solaria.persistence.repository.SupplierRepository;

@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -13,12 +13,12 @@ import com.solaria.persistence.domain.entity.Technician;
 import com.solaria.persistence.domain.entity.TechnicalService;
 import com.solaria.persistence.domain.entity.User;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto3.request.ProfessionalReviewRequestDTO;
-import com.solaria.persistence.dto3.response.ProfessionalReviewResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ProfessionalReviewRequestDTO;
+import com.solaria.persistence.dto.response.ProfessionalReviewResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ProfessionalReviewRepository;
 import com.solaria.persistence.repository.ServiceExecutorRepository;
 import com.solaria.persistence.repository.TechnicalServiceRepository;

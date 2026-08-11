@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.CompanyPlansRequestDTO;
-import com.solaria.persistence.dto3.response.CompanyPlansResponseDTO;
+import com.solaria.persistence.dto.request.CompanyPlansRequestDTO;
+import com.solaria.persistence.dto.response.CompanyPlansResponseDTO;
 import com.solaria.persistence.openapi.CompanyPlansOpenApi;
 import com.solaria.persistence.service.CompanyPlansService;
 

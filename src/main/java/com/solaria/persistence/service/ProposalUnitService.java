@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,14 +11,14 @@ import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.domain.entity.ProposalItem;
 import com.solaria.persistence.domain.entity.ProposalUnit;
 import com.solaria.persistence.domain.enums.ProposalStatus;
-import com.solaria.persistence.dto3.request.ProposalUnitRequestDTO;
-import com.solaria.persistence.dto3.response.AddressResponseDTO;
-import com.solaria.persistence.dto3.response.LocalUnitResponseDTO;
-import com.solaria.persistence.dto3.response.ProposalUnitResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
-import com.solaria.persistence.exception3.UnauthorizedAccessException;
+import com.solaria.persistence.dto.request.ProposalUnitRequestDTO;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.LocalUnitResponseDTO;
+import com.solaria.persistence.dto.response.ProposalUnitResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
 import com.solaria.persistence.repository.LocalUnitRepository;
 import com.solaria.persistence.repository.ProposalItemRepository;
 import com.solaria.persistence.repository.ProposalUnitRepository;

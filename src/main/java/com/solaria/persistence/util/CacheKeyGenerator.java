@@ -1,4 +1,4 @@
-package com.solaria.persistence.util3;
+package com.solaria.persistence.util;
 
 public final class CacheKeyGenerator {
     private static final String PREFIX = "core";

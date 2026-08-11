@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,10 +10,10 @@ import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.domain.entity.Requester;
 import com.solaria.persistence.domain.entity.TechnicalProject;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto3.request.TechnicalProjectRequestDTO;
-import com.solaria.persistence.dto3.response.TechnicalProjectResponseDTO;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.TechnicalProjectRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalProjectResponseDTO;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.LocalUnitRepository;
 import com.solaria.persistence.repository.RequesterRepository;
 import com.solaria.persistence.repository.TechnicalProjectRepository;

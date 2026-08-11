@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.ShiftRequestDTO;
-import com.solaria.persistence.dto3.response.ShiftResponseDTO;
+import com.solaria.persistence.dto.request.ShiftRequestDTO;
+import com.solaria.persistence.dto.response.ShiftResponseDTO;
 import com.solaria.persistence.openapi.ShiftOpenApi;
 import com.solaria.persistence.service.ShiftService;
 

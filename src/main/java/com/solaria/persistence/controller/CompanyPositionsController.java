@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.CompanyPositionsRequestDTO;
-import com.solaria.persistence.dto3.response.CompanyPositionsResponseDTO;
+import com.solaria.persistence.dto.request.CompanyPositionsRequestDTO;
+import com.solaria.persistence.dto.response.CompanyPositionsResponseDTO;
 import com.solaria.persistence.openapi.CompanyPositionsOpenApi;
 import com.solaria.persistence.service.CompanyPositionsService;
 

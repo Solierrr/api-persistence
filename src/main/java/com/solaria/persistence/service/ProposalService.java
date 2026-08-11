@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,10 +17,10 @@ import com.solaria.persistence.domain.entity.Proposal;
 import com.solaria.persistence.domain.entity.ProposalItem;
 import com.solaria.persistence.domain.entity.Requester;
 import com.solaria.persistence.domain.enums.ProposalStatus;
-import com.solaria.persistence.dto3.request.ProposalRequestDTO;
-import com.solaria.persistence.dto3.response.ProposalResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ProposalRequestDTO;
+import com.solaria.persistence.dto.response.ProposalResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.InventoryRepository;
 import com.solaria.persistence.repository.OfferRepository;
 import com.solaria.persistence.repository.ProposalItemRepository;

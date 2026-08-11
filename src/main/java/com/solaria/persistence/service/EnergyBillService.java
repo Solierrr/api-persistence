@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,10 +11,10 @@ import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.EnergyBill;
 import com.solaria.persistence.domain.entity.LocalUnit;
-import com.solaria.persistence.dto3.request.EnergyBillRequestDTO;
-import com.solaria.persistence.dto3.response.EnergyBillResponseDTO;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.EnergyBillRequestDTO;
+import com.solaria.persistence.dto.response.EnergyBillResponseDTO;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.EnergyBillRepository;
 import com.solaria.persistence.repository.LocalUnitRepository;
 

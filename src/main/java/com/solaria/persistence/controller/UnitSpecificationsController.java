@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.UnitSpecificationsRequestDTO;
-import com.solaria.persistence.dto3.response.UnitSpecificationsResponseDTO;
+import com.solaria.persistence.dto.request.UnitSpecificationsRequestDTO;
+import com.solaria.persistence.dto.response.UnitSpecificationsResponseDTO;
 import com.solaria.persistence.openapi.UnitSpecificationsOpenApi;
 import com.solaria.persistence.service.UnitSpecificationsService;
 

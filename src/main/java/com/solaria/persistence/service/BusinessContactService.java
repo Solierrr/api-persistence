@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.BusinessContact;
-import com.solaria.persistence.dto3.request.BusinessContactRequestDTO;
-import com.solaria.persistence.dto3.response.BusinessContactResponseDTO;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.BusinessContactRequestDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.BusinessContactRepository;
 import com.solaria.persistence.repository.CompanyRepository;
 

@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.http.ResponseEntity;
 
 import com.solaria.persistence.domain.enums.ModelStatus;
-import com.solaria.persistence.dto3.request.ModelRequestDTO;
-import com.solaria.persistence.dto3.response.ModelResponseDTO;
+import com.solaria.persistence.dto.request.ModelRequestDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

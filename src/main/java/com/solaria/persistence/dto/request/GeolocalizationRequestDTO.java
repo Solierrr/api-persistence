@@ -1,5 +1,5 @@
 
-package com.solaria.persistence.dto3.Request;
+package com.solaria.persistence.dto.request;
 
 import java.math.BigDecimal;
 import java.util.UUID;

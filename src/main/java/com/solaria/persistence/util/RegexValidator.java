@@ -1,4 +1,4 @@
-package com.solaria.persistence.util3;
+package com.solaria.persistence.util;
 
 /**
  * Expressões REGEX, Usadas em @Pattern nos request DTOs.

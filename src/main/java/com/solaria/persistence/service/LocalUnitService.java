@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,12 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.solaria.persistence.domain.entity.Address;
 import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.domain.entity.Requester;
-import com.solaria.persistence.dto3.request.LocalUnitRequestDTO;
-import com.solaria.persistence.dto3.response.AddressResponseDTO;
-import com.solaria.persistence.dto3.response.LocalUnitResponseDTO;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.LocalUnitRequestDTO;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.LocalUnitResponseDTO;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.AddressRepository;
 import com.solaria.persistence.repository.EnergyBillRepository;
 import com.solaria.persistence.repository.LocalUnitRepository;

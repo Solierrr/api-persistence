@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.patch.UpdateBusinessContactIdDTO;
-import com.solaria.persistence.dto3.patch.UpdateCompanyAddressIdDTO;
-import com.solaria.persistence.dto3.request.CompanyRequestDTO;
-import com.solaria.persistence.dto3.response.CompanyResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateBusinessContactIdDTO;
+import com.solaria.persistence.dto.patch.UpdateCompanyAddressIdDTO;
+import com.solaria.persistence.dto.request.CompanyRequestDTO;
+import com.solaria.persistence.dto.response.CompanyResponseDTO;
 import com.solaria.persistence.openapi.CompanyOpenApi;
 import com.solaria.persistence.service.CompanyService;
 

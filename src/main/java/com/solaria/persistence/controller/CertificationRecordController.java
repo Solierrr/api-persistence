@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.CertificationRecordRequestDTO;
-import com.solaria.persistence.dto3.response.CertificationRecordResponseDTO;
+import com.solaria.persistence.dto.request.CertificationRecordRequestDTO;
+import com.solaria.persistence.dto.response.CertificationRecordResponseDTO;
 import com.solaria.persistence.openapi.CertificationRecordOpenApi;
 import com.solaria.persistence.service.CertificationRecordService;
 

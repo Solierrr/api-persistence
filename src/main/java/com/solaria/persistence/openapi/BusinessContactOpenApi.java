@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.request.BusinessContactRequestDTO;
-import com.solaria.persistence.dto3.response.BusinessContactResponseDTO;
+import com.solaria.persistence.dto.request.BusinessContactRequestDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.patch.UpdatePositionDTO;
-import com.solaria.persistence.dto3.request.UserCompanyRequestDTO;
-import com.solaria.persistence.dto3.response.UserCompanyResponseDTO;
+import com.solaria.persistence.dto.patch.UpdatePositionDTO;
+import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
+import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

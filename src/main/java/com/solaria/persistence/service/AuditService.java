@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

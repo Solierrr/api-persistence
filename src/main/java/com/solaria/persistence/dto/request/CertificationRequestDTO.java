@@ -1,4 +1,4 @@
-package com.solaria.persistence.dto3.Request;
+package com.solaria.persistence.dto.request;
 
 import jakarta.validation.constraints.Size;
 import lombok.Getter;

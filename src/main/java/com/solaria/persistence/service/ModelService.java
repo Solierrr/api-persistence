@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,12 +11,12 @@ import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.Model;
 import com.solaria.persistence.domain.enums.ModelStatus;
-import com.solaria.persistence.dto3.request.ModelRequestDTO;
-import com.solaria.persistence.dto3.response.ModelResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ModelRequestDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.InventoryRepository;
 import com.solaria.persistence.repository.ModelRepository;
 import com.solaria.persistence.repository.OfferRepository;

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.PersonRequestDTO;
-import com.solaria.persistence.dto3.response.PersonResponseDTO;
+import com.solaria.persistence.dto.request.PersonRequestDTO;
+import com.solaria.persistence.dto.response.PersonResponseDTO;
 import com.solaria.persistence.openapi.PersonOpenApi;
 import com.solaria.persistence.service.PersonService;
 

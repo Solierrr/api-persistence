@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.request.ShiftRequestDTO;
-import com.solaria.persistence.dto3.response.ShiftResponseDTO;
+import com.solaria.persistence.dto.request.ShiftRequestDTO;
+import com.solaria.persistence.dto.response.ShiftResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

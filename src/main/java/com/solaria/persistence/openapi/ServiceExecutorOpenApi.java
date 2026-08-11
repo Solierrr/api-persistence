@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.patch.UpdateFunctionDTO;
-import com.solaria.persistence.dto3.request.ServiceExecutorRequestDTO;
-import com.solaria.persistence.dto3.response.ServiceExecutorResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateFunctionDTO;
+import com.solaria.persistence.dto.request.ServiceExecutorRequestDTO;
+import com.solaria.persistence.dto.response.ServiceExecutorResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

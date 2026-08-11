@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -12,14 +12,14 @@ import com.solaria.persistence.domain.entity.Model;
 import com.solaria.persistence.domain.entity.Offer;
 import com.solaria.persistence.domain.entity.Proposal;
 import com.solaria.persistence.domain.entity.ProposalItem;
-import com.solaria.persistence.dto3.request.ProposalItemRequestDTO;
-import com.solaria.persistence.dto3.response.ModelResponseDTO;
-import com.solaria.persistence.dto3.response.OfferResponseDTO;
-import com.solaria.persistence.dto3.response.ProposalItemResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ProposalItemRequestDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
+import com.solaria.persistence.dto.response.ProposalItemResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.OfferRepository;
 import com.solaria.persistence.repository.ProposalItemRepository;
 import com.solaria.persistence.repository.ProposalRepository;

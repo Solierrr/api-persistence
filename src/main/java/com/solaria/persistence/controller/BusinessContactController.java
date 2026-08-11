@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.BusinessContactRequestDTO;
-import com.solaria.persistence.dto3.response.BusinessContactResponseDTO;
+import com.solaria.persistence.dto.request.BusinessContactRequestDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
 import com.solaria.persistence.openapi.BusinessContactOpenApi;
 import com.solaria.persistence.service.BusinessContactService;
 

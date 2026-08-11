@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.FluxLogRequestDTO;
-import com.solaria.persistence.dto3.response.FluxLogResponseDTO;
+import com.solaria.persistence.dto.request.FluxLogRequestDTO;
+import com.solaria.persistence.dto.response.FluxLogResponseDTO;
 import com.solaria.persistence.openapi.FluxLogOpenApi;
 import com.solaria.persistence.service.FluxLogService;
 

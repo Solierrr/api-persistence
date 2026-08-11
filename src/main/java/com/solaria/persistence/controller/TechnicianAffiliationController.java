@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.patch.UpdateActiveDTO;
-import com.solaria.persistence.dto3.patch.UpdateTypeDTO;
-import com.solaria.persistence.dto3.request.TechnicianAffiliationRequestDTO;
-import com.solaria.persistence.dto3.response.TechnicianAffiliationResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateActiveDTO;
+import com.solaria.persistence.dto.patch.UpdateTypeDTO;
+import com.solaria.persistence.dto.request.TechnicianAffiliationRequestDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
 import com.solaria.persistence.openapi.TechnicianAffiliationOpenApi;
 import com.solaria.persistence.service.TechnicianAffiliationService;
 

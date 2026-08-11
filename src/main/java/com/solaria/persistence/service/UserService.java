@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.User;
-import com.solaria.persistence.dto3.request.UserRequestDTO;
-import com.solaria.persistence.dto3.response.UserResponseDTO;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.UserRequestDTO;
+import com.solaria.persistence.dto.response.UserResponseDTO;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.PersonRepository;
 import com.solaria.persistence.repository.UserCompanyRepository;
 import com.solaria.persistence.repository.UserRepository;
