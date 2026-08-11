@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.patch.UpdateQuantityDTO;
-import com.solaria.persistence.dto3.request.InventoryRequestDTO;
-import com.solaria.persistence.dto3.response.InventoryResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateQuantityDTO;
+import com.solaria.persistence.dto.request.InventoryRequestDTO;
+import com.solaria.persistence.dto.response.InventoryResponseDTO;
 import com.solaria.persistence.openapi.InventoryOpenApi;
 import com.solaria.persistence.service.InventoryService;
 

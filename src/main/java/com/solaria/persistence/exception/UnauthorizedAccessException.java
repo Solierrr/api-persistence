@@ -1,4 +1,4 @@
-package com.solaria.persistence.exception3;
+package com.solaria.persistence.exception;
 
 import java.util.Map;
 

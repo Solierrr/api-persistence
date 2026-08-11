@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,12 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.solaria.persistence.domain.entity.Permission;
 import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.domain.entity.PositionPermission;
-import com.solaria.persistence.dto3.request.PositionPermissionRequestDTO;
-import com.solaria.persistence.dto3.response.PermissionResponseDTO;
-import com.solaria.persistence.dto3.response.PositionPermissionResponseDTO;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
-import com.solaria.persistence.exception3.UnauthorizedAccessException;
+import com.solaria.persistence.dto.request.PositionPermissionRequestDTO;
+import com.solaria.persistence.dto.response.PermissionResponseDTO;
+import com.solaria.persistence.dto.response.PositionPermissionResponseDTO;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
 import com.solaria.persistence.repository.PermissionRepository;
 import com.solaria.persistence.repository.PositionPermissionRepository;
 import com.solaria.persistence.repository.PositionRepository;

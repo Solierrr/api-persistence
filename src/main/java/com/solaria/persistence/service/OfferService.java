@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -13,13 +13,13 @@ import com.solaria.persistence.domain.entity.Offer;
 import com.solaria.persistence.domain.entity.Supplier;
 import com.solaria.persistence.domain.enums.ModelStatus;
 import com.solaria.persistence.domain.enums.SupplierStatus;
-import com.solaria.persistence.dto3.request.OfferRequestDTO;
-import com.solaria.persistence.dto3.response.ModelResponseDTO;
-import com.solaria.persistence.dto3.response.OfferResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.OfferRequestDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ModelRepository;
 import com.solaria.persistence.repository.OfferRepository;
 import com.solaria.persistence.repository.ProposalItemRepository;

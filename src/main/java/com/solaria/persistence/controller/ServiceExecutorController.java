@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.patch.UpdateFunctionDTO;
-import com.solaria.persistence.dto3.request.ServiceExecutorRequestDTO;
-import com.solaria.persistence.dto3.response.ServiceExecutorResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateFunctionDTO;
+import com.solaria.persistence.dto.request.ServiceExecutorRequestDTO;
+import com.solaria.persistence.dto.response.ServiceExecutorResponseDTO;
 import com.solaria.persistence.openapi.ServiceExecutorOpenApi;
 import com.solaria.persistence.service.ServiceExecutorService;
 

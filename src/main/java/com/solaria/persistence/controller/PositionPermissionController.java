@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.PositionPermissionRequestDTO;
-import com.solaria.persistence.dto3.response.PositionPermissionResponseDTO;
+import com.solaria.persistence.dto.request.PositionPermissionRequestDTO;
+import com.solaria.persistence.dto.response.PositionPermissionResponseDTO;
 import com.solaria.persistence.openapi.PositionPermissionOpenApi;
 import com.solaria.persistence.service.PositionPermissionService;
 

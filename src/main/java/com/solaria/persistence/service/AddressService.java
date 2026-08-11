@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,17 +6,17 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tools.jackson.databind.ObjectMapper;
-
 import com.solaria.persistence.domain.entity.Address;
-import com.solaria.persistence.dto3.request.AddressRequestDTO;
-import com.solaria.persistence.dto3.response.AddressResponseDTO;
-import com.solaria.persistence.exception3.ResourceInUseException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.AddressRequestDTO;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.exception.ResourceInUseException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.AddressRepository;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.GeolocalizationRepository;
 import com.solaria.persistence.repository.LocalUnitRepository;
+
+import tools.jackson.databind.ObjectMapper;
 
 @Service
 public class AddressService {

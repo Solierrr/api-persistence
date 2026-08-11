@@ -5,10 +5,10 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.patch.UpdateActiveDTO;
-import com.solaria.persistence.dto3.patch.UpdateTypeDTO;
-import com.solaria.persistence.dto3.request.TechnicianAffiliationRequestDTO;
-import com.solaria.persistence.dto3.response.TechnicianAffiliationResponseDTO;
+import com.solaria.persistence.dto.patch.UpdateActiveDTO;
+import com.solaria.persistence.dto.patch.UpdateTypeDTO;
+import com.solaria.persistence.dto.request.TechnicianAffiliationRequestDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

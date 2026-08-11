@@ -1,4 +1,4 @@
-package com.solaria.persistence.dto3.Patch;
+package com.solaria.persistence.dto.patch;
 
 import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
 import jakarta.validation.constraints.NotNull;

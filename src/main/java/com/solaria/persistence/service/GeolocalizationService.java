@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,11 +11,11 @@ import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.Address;
 import com.solaria.persistence.domain.entity.Geolocalization;
-import com.solaria.persistence.dto3.request.GeolocalizationRequestDTO;
-import com.solaria.persistence.dto3.response.GeolocalizationResponseDTO;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.GeolocalizationRequestDTO;
+import com.solaria.persistence.dto.response.GeolocalizationResponseDTO;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.AddressRepository;
 import com.solaria.persistence.repository.GeolocalizationRepository;
 

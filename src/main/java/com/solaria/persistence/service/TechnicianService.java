@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,13 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.solaria.persistence.domain.entity.Contact;
 import com.solaria.persistence.domain.entity.Person;
 import com.solaria.persistence.domain.entity.Technician;
-import com.solaria.persistence.dto3.request.TechnicianRequestDTO;
-import com.solaria.persistence.dto3.response.ContactResponseDTO;
-import com.solaria.persistence.dto3.response.PersonResponseDTO;
-import com.solaria.persistence.dto3.response.TechnicianResponseDTO;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.TechnicianRequestDTO;
+import com.solaria.persistence.dto.response.ContactResponseDTO;
+import com.solaria.persistence.dto.response.PersonResponseDTO;
+import com.solaria.persistence.dto.response.TechnicianResponseDTO;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.PersonRepository;
 import com.solaria.persistence.repository.TechnicianRepository;
 

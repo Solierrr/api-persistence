@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,14 +14,14 @@ import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.Supplier;
 import com.solaria.persistence.domain.enums.CompanyStatus;
 import com.solaria.persistence.domain.enums.SupplierStatus;
-import com.solaria.persistence.dto3.request.SupplierRequestDTO;
-import com.solaria.persistence.dto3.response.AddressResponseDTO;
-import com.solaria.persistence.dto3.response.BusinessContactResponseDTO;
-import com.solaria.persistence.dto3.response.CompanyResponseDTO;
-import com.solaria.persistence.dto3.response.SupplierResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.SupplierRequestDTO;
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
+import com.solaria.persistence.dto.response.CompanyResponseDTO;
+import com.solaria.persistence.dto.response.SupplierResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.RequesterRepository;
 import com.solaria.persistence.repository.SupplierRepository;

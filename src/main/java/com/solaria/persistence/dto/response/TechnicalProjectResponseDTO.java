@@ -1,4 +1,4 @@
-package com.solaria.persistence.dto3.Response;
+package com.solaria.persistence.dto.response;
 
 import com.solaria.persistence.domain.enums.ServiceStatus;
 import lombok.Getter;

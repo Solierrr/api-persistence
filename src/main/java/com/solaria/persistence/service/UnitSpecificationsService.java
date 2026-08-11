@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -11,9 +11,9 @@ import tools.jackson.databind.ObjectMapper;
 
 import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.domain.entity.UnitSpecifications;
-import com.solaria.persistence.dto3.request.UnitSpecificationsRequestDTO;
-import com.solaria.persistence.dto3.response.UnitSpecificationsResponseDTO;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.UnitSpecificationsRequestDTO;
+import com.solaria.persistence.dto.response.UnitSpecificationsResponseDTO;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.LocalUnitRepository;
 import com.solaria.persistence.repository.UnitSpecificationsRepository;
 

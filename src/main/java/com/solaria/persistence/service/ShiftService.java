@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.solaria.persistence.domain.entity.Shift;
 import com.solaria.persistence.domain.entity.Technician;
-import com.solaria.persistence.dto3.request.ShiftRequestDTO;
-import com.solaria.persistence.dto3.response.ShiftResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ShiftRequestDTO;
+import com.solaria.persistence.dto.response.ShiftResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ShiftRepository;
 import com.solaria.persistence.repository.TechnicianRepository;
 

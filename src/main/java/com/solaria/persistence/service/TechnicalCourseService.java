@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.TechnicalCourse;
-import com.solaria.persistence.dto3.request.TechnicalCourseRequestDTO;
-import com.solaria.persistence.dto3.response.TechnicalCourseResponseDTO;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.TechnicalCourseRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalCourseResponseDTO;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.TechnicalCourseRepository;
 

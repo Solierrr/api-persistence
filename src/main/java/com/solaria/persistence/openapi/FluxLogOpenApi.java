@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.request.FluxLogRequestDTO;
-import com.solaria.persistence.dto3.response.FluxLogResponseDTO;
+import com.solaria.persistence.dto.request.FluxLogRequestDTO;
+import com.solaria.persistence.dto.response.FluxLogResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

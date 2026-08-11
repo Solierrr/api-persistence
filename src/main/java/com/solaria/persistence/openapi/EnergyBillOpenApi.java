@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
-import com.solaria.persistence.dto3.request.EnergyBillRequestDTO;
-import com.solaria.persistence.dto3.response.EnergyBillResponseDTO;
+import com.solaria.persistence.dto.request.EnergyBillRequestDTO;
+import com.solaria.persistence.dto.response.EnergyBillResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

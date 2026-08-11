@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,12 +12,12 @@ import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.domain.entity.User;
 import com.solaria.persistence.domain.entity.UserCompany;
-import com.solaria.persistence.dto3.request.UserCompanyRequestDTO;
-import com.solaria.persistence.dto3.response.PositionResponseDTO;
-import com.solaria.persistence.dto3.response.UserCompanyResponseDTO;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
-import com.solaria.persistence.exception3.UnauthorizedAccessException;
+import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
+import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
 import com.solaria.persistence.repository.CompanyPositionsRepository;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.PositionRepository;

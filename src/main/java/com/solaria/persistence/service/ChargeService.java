@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,11 +15,11 @@ import com.solaria.persistence.domain.entity.Charge;
 import com.solaria.persistence.domain.entity.Subscription;
 import com.solaria.persistence.domain.enums.BillingStatus;
 import com.solaria.persistence.domain.enums.PaymentMethod;
-import com.solaria.persistence.dto3.request.ChargeRequestDTO;
-import com.solaria.persistence.dto3.response.ChargeResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ChargeRequestDTO;
+import com.solaria.persistence.dto.response.ChargeResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ChargeRepository;
 import com.solaria.persistence.repository.SubscriptionRepository;
 

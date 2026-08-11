@@ -1,4 +1,4 @@
-package com.solaria.persistence.service3;
+package com.solaria.persistence.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,13 +12,13 @@ import com.solaria.persistence.domain.entity.ServiceExecutor;
 import com.solaria.persistence.domain.entity.TechnicalService;
 import com.solaria.persistence.domain.entity.TechnicianAffiliation;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto3.request.ServiceExecutorRequestDTO;
-import com.solaria.persistence.dto3.response.ServiceExecutorResponseDTO;
-import com.solaria.persistence.dto3.response.TechnicianAffiliationResponseDTO;
-import com.solaria.persistence.exception3.BusinessRuleException;
-import com.solaria.persistence.exception3.DuplicateResourceException;
-import com.solaria.persistence.exception3.InvalidFieldException;
-import com.solaria.persistence.exception3.ResourceNotFoundException;
+import com.solaria.persistence.dto.request.ServiceExecutorRequestDTO;
+import com.solaria.persistence.dto.response.ServiceExecutorResponseDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
+import com.solaria.persistence.exception.BusinessRuleException;
+import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
+import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ServiceExecutorRepository;
 import com.solaria.persistence.repository.TechnicalServiceRepository;
 import com.solaria.persistence.repository.TechnicianAffiliationRepository;

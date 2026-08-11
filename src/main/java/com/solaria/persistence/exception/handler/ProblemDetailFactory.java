@@ -1,4 +1,4 @@
-package com.solaria.persistence.exception3.handler;
+package com.solaria.persistence.exception.handler;
 
 import java.net.URI;
 import java.time.Instant;

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solaria.persistence.dto3.request.EnergyBillRequestDTO;
-import com.solaria.persistence.dto3.response.EnergyBillResponseDTO;
+import com.solaria.persistence.dto.request.EnergyBillRequestDTO;
+import com.solaria.persistence.dto.response.EnergyBillResponseDTO;
 import com.solaria.persistence.openapi.EnergyBillOpenApi;
 import com.solaria.persistence.service.EnergyBillService;
 
