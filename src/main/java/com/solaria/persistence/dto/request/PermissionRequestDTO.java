@@ -13,4 +13,12 @@ public class PermissionRequestDTO {
     @Size(max = 100)
     private String permissionName;
 
+    @NotBlank(message = "Nome é obrigatório")
+    @Size(max = 150)
+    private String name;
+
+    @NotBlank(message = "Descrição é obrigatória")
+    @Size(max = 300)
+    private String description;
+
 }
