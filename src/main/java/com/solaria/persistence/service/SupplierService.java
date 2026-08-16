@@ -25,6 +25,7 @@ import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.RequesterRepository;
 import com.solaria.persistence.repository.SupplierRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 
 @Service
@@ -39,13 +40,16 @@ public class SupplierService {
     private final SupplierRepository supplierRepository;
     private final CompanyRepository companyRepository;
     private final RequesterRepository requesterRepository;
+    private final RbacAuthorizationService rbac;
 
     public SupplierService(SupplierRepository supplierRepository,
                            CompanyRepository companyRepository,
-                           RequesterRepository requesterRepository) {
+                           RequesterRepository requesterRepository,
+                           RbacAuthorizationService rbac) {
         this.supplierRepository = supplierRepository;
         this.companyRepository = companyRepository;
         this.requesterRepository = requesterRepository;
+        this.rbac = rbac;
     }
 
     @Transactional
@@ -118,6 +122,8 @@ public class SupplierService {
     private SupplierResponseDTO applyTransition(UUID id, SupplierStatus target) {
         Supplier supplier = supplierRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Fornecedor não encontrado com ID: " + id));
+
+        rbac.requireOwnCompany(supplier.getCompany().getId());
 
         validateTransition(supplier.getStatus(), target);
 

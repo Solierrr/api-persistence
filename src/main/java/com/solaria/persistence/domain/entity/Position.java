@@ -21,6 +21,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Position {
 
+    public static final String ADMIN_NAME = "ADMIN";
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

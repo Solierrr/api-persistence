@@ -22,6 +22,7 @@ import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyPlansRepository;
 import com.solaria.persistence.repository.SubscriptionRepository;
 import com.solaria.persistence.repository.SupplierRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 @Service
 public class SubscriptionService {
@@ -35,13 +36,16 @@ public class SubscriptionService {
     private final SubscriptionRepository subscriptionRepository;
     private final SupplierRepository supplierRepository;
     private final CompanyPlansRepository companyPlansRepository;
+    private final RbacAuthorizationService rbac;
 
     public SubscriptionService(SubscriptionRepository subscriptionRepository,
                                SupplierRepository supplierRepository,
-                               CompanyPlansRepository companyPlansRepository) {
+                               CompanyPlansRepository companyPlansRepository,
+                               RbacAuthorizationService rbac) {
         this.subscriptionRepository = subscriptionRepository;
         this.supplierRepository = supplierRepository;
         this.companyPlansRepository = companyPlansRepository;
+        this.rbac = rbac;
     }
 
     @Transactional
@@ -88,6 +92,7 @@ public class SubscriptionService {
     @Transactional
     public SubscriptionResponseDTO end(UUID id) {
         Subscription subscription = findEntityById(id);
+        rbac.requireOwnCompany(subscription.getSupplier().getCompany().getId());
         validateNotEnded(subscription);
 
         subscription.setEndDate(OffsetDateTime.now());
@@ -141,6 +146,7 @@ public class SubscriptionService {
 
     private SubscriptionResponseDTO applyTransition(UUID id, SubscriptionStatus target) {
         Subscription subscription = findEntityById(id);
+        rbac.requireOwnCompany(subscription.getSupplier().getCompany().getId());
         validateNotEnded(subscription);
         validateTransition(subscription.getStatus(), target);
 

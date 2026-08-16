@@ -23,8 +23,6 @@ import com.solaria.persistence.repository.PositionRepository;
 @Service
 public class PositionPermissionService {
 
-    private static final String ADMIN_POSITION_NAME = "ADMIN";
-
     private final PositionPermissionRepository positionPermissionRepository;
     private final PositionRepository positionRepository;
     private final PermissionRepository permissionRepository;
@@ -62,7 +60,7 @@ public class PositionPermissionService {
                 () -> new ResourceNotFoundException(
                         "Vínculo cargo-permissão com id:" + id + " não encontrado(a) para exclusão"));
 
-        if (ADMIN_POSITION_NAME.equals(positionPermission.getPosition().getName())) {
+        if (Position.ADMIN_NAME.equals(positionPermission.getPosition().getName())) {
             throw new UnauthorizedAccessException("Revogar permissão de ADMIN não é permitido");
         }
 

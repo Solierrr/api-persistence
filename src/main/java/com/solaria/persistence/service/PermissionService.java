@@ -38,6 +38,8 @@ public class PermissionService {
 
         Permission permission = new Permission();
         permission.setPermissionName(dto.getPermissionName());
+        permission.setName(dto.getName());
+        permission.setDescription(dto.getDescription());
 
         return toResponse(permissionRepository.save(permission));
     }
@@ -52,6 +54,8 @@ public class PermissionService {
         }
 
         permission.setPermissionName(dto.getPermissionName());
+        permission.setName(dto.getName());
+        permission.setDescription(dto.getDescription());
 
         return toResponse(permissionRepository.save(permission));
     }

@@ -18,6 +18,7 @@ import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ServiceContractRepository;
 import com.solaria.persistence.repository.TechnicalServiceRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 
 @Service
@@ -25,13 +26,16 @@ public class ServiceContractService {
 
     private final ServiceContractRepository serviceContractRepository;
     private final TechnicalServiceRepository technicalServiceRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public ServiceContractService(ServiceContractRepository serviceContractRepository,
                                   TechnicalServiceRepository technicalServiceRepository,
+                                  RbacAuthorizationService rbac,
                                   ObjectMapper objectMapper) {
         this.serviceContractRepository = serviceContractRepository;
         this.technicalServiceRepository = technicalServiceRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -87,6 +91,8 @@ public class ServiceContractService {
         ServiceContract serviceContract = serviceContractRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Contrato de Serviço com id:" + id + " não encontrado para atualização"));
+
+        rbac.requireOwnCompany(serviceContract.getService().getTechnicalProject().getRequester().getCompany().getId());
 
         serviceContract.setUtilityApproval(true);
 

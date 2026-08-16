@@ -25,6 +25,7 @@ import com.solaria.persistence.repository.OfferRepository;
 import com.solaria.persistence.repository.ProposalItemRepository;
 import com.solaria.persistence.repository.ProposalRepository;
 import com.solaria.persistence.repository.RequesterRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 @Service
 public class ProposalService {
@@ -34,6 +35,7 @@ public class ProposalService {
     private final ProposalItemRepository proposalItemRepository;
     private final InventoryRepository inventoryRepository;
     private final OfferRepository offerRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public ProposalService(ProposalRepository proposalRepository,
@@ -41,12 +43,14 @@ public class ProposalService {
                            ProposalItemRepository proposalItemRepository,
                            InventoryRepository inventoryRepository,
                            OfferRepository offerRepository,
+                           RbacAuthorizationService rbac,
                            ObjectMapper objectMapper) {
         this.proposalRepository = proposalRepository;
         this.requesterRepository = requesterRepository;
         this.proposalItemRepository = proposalItemRepository;
         this.inventoryRepository = inventoryRepository;
         this.offerRepository = offerRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -122,6 +126,7 @@ public class ProposalService {
     private ProposalResponseDTO applyTransition(UUID id, ProposalStatus expectedSource, ProposalStatus target,
                                                  String acaoBusca, String acaoTransicao) {
         Proposal proposal = findEntity(id, acaoBusca);
+        rbac.requireOwnCompany(proposal.getRequester().getCompany().getId());
         requireStatus(proposal, expectedSource, acaoTransicao);
 
         Proposal saved = target == ProposalStatus.ACCEPTED
@@ -139,6 +144,7 @@ public class ProposalService {
 
     private ProposalResponseDTO applyEditableTransition(UUID id, ProposalStatus target, String acao) {
         Proposal proposal = findEntity(id, acao);
+        rbac.requireOwnCompany(proposal.getRequester().getCompany().getId());
         if (!isEditable(proposal.getStatus())) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + proposal.getStatus() + " → " + target);
