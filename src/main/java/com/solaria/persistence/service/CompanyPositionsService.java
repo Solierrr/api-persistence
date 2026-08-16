@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Company;
-import com.solaria.persistence.domain.entity.CompanyPositions;
-import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.dto.request.CompanyPositionsRequestDTO;
 import com.solaria.persistence.dto.response.CompanyPositionsResponseDTO;
 import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.entity.CompanyPositions;
+import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
@@ -21,6 +20,7 @@ import com.solaria.persistence.repository.CompanyPositionsRepository;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.PositionRepository;
 import com.solaria.persistence.repository.UserCompanyRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 @Service
 public class CompanyPositionsService {
@@ -29,17 +29,20 @@ public class CompanyPositionsService {
     private final CompanyRepository companyRepository;
     private final PositionRepository positionRepository;
     private final UserCompanyRepository userCompanyRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public CompanyPositionsService(CompanyPositionsRepository companyPositionsRepository,
                                    CompanyRepository companyRepository,
                                    PositionRepository positionRepository,
                                    UserCompanyRepository userCompanyRepository,
+                                   RbacAuthorizationService rbac,
                                    ObjectMapper objectMapper) {
         this.companyPositionsRepository = companyPositionsRepository;
         this.companyRepository = companyRepository;
         this.positionRepository = positionRepository;
         this.userCompanyRepository = userCompanyRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -53,6 +56,11 @@ public class CompanyPositionsService {
         if (companyPositionsRepository.existsByCompanyIdAndPositionId(dto.getCompanyId(), dto.getPositionId())) {
             throw new DuplicateResourceException(
                     "Cargo já disponibilizado para a empresa: " + dto.getCompanyId());
+        }
+
+        // primeira company positon não depende de vínculo, pois ele nao existe ainda
+        if (companyPositionsRepository.existsByCompanyId(dto.getCompanyId())) {
+            rbac.requireOwnCompany(dto.getCompanyId());
         }
 
         CompanyPositions companyPositions = new CompanyPositions();
@@ -70,6 +78,8 @@ public class CompanyPositionsService {
 
         UUID companyId = companyPositions.getCompany().getId();
         UUID positionId = companyPositions.getPosition().getId();
+
+        rbac.requireOwnCompany(companyId);
 
         if (userCompanyRepository.existsByCompanyIdAndPositionId(companyId, positionId)) {
             throw new ResourceInUseException("Cargo não pode ser excluído(a): possui usuário(s) vinculado(s) na empresa");

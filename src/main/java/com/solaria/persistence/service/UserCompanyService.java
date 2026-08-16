@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
+import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
 import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.domain.entity.User;
 import com.solaria.persistence.domain.entity.UserCompany;
-import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
-import com.solaria.persistence.dto.response.PositionResponseDTO;
-import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
 import com.solaria.persistence.exception.DuplicateResourceException;
+import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.exception.UnauthorizedAccessException;
 import com.solaria.persistence.repository.CompanyPositionsRepository;
@@ -23,6 +23,7 @@ import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.PositionRepository;
 import com.solaria.persistence.repository.UserCompanyRepository;
 import com.solaria.persistence.repository.UserRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 
 @Service
@@ -33,6 +34,7 @@ public class UserCompanyService {
     private final CompanyRepository companyRepository;
     private final PositionRepository positionRepository;
     private final CompanyPositionsRepository companyPositionsRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public UserCompanyService(UserCompanyRepository userCompanyRepository,
@@ -40,12 +42,14 @@ public class UserCompanyService {
                               CompanyRepository companyRepository,
                               PositionRepository positionRepository,
                               CompanyPositionsRepository companyPositionsRepository,
+                              RbacAuthorizationService rbac,
                               ObjectMapper objectMapper) {
         this.userCompanyRepository = userCompanyRepository;
         this.userRepository = userRepository;
         this.companyRepository = companyRepository;
         this.positionRepository = positionRepository;
         this.companyPositionsRepository = companyPositionsRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -67,6 +71,14 @@ public class UserCompanyService {
             throw new UnauthorizedAccessException("Cargo não disponível para a empresa");
         }
 
+        if (!userCompanyRepository.existsByCompanyId(dto.getCompanyId())) {
+            if (!Position.ADMIN_NAME.equals(position.getName())) {
+                throw new InvalidFieldException("A primeira conta de uma empresa deve ter o cargo ADMIN");
+            }
+        } else {
+            rbac.requireOwnCompany(dto.getCompanyId());
+        }
+
         UserCompany userCompany = new UserCompany();
         userCompany.setUser(user);
         userCompany.setCompany(company);
@@ -86,8 +98,16 @@ public class UserCompanyService {
 
         UUID companyId = userCompany.getCompany().getId();
 
+        rbac.requireOwnCompany(companyId);
+
         if (!companyPositionsRepository.existsByCompanyIdAndPositionId(companyId, positionId)) {
             throw new UnauthorizedAccessException("Cargo não disponível para a empresa");
+        }
+
+        boolean leavingAdmin = Position.ADMIN_NAME.equals(userCompany.getPosition().getName())
+                && !Position.ADMIN_NAME.equals(position.getName());
+        if (leavingAdmin && isLastAdminOfCompany(companyId, id)) {
+            throw new UnauthorizedAccessException("A empresa deve manter pelo menos um vínculo ADMIN");
         }
 
         userCompany.setPosition(position);
@@ -97,11 +117,25 @@ public class UserCompanyService {
 
     @Transactional
     public void deleteById(UUID id) {
-        if (!userCompanyRepository.existsById(id)) {
-            throw new ResourceNotFoundException(
-                    "Vínculo usuário-empresa com id:" + id + " não encontrado para exclusão");
+        UserCompany userCompany = userCompanyRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException(
+                        "Vínculo usuário-empresa com id:" + id + " não encontrado para exclusão"));
+
+        UUID companyId = userCompany.getCompany().getId();
+
+        rbac.requireOwnCompany(companyId);
+
+        if (Position.ADMIN_NAME.equals(userCompany.getPosition().getName()) && isLastAdminOfCompany(companyId, id)) {
+            throw new UnauthorizedAccessException("A empresa deve manter pelo menos um vínculo ADMIN");
         }
+
         userCompanyRepository.deleteById(id);
+    }
+
+    private boolean isLastAdminOfCompany(UUID companyId, UUID excludingId) {
+        return userCompanyRepository.findByCompanyId(companyId).stream()
+                .filter(uc -> !uc.getId().equals(excludingId))
+                .noneMatch(uc -> Position.ADMIN_NAME.equals(uc.getPosition().getName()));
     }
 
     @Transactional(readOnly = true)

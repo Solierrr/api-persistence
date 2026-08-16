@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.request.ChargeRequestDTO;
+import com.solaria.persistence.dto.response.ChargeResponseDTO;
 import com.solaria.persistence.domain.entity.Charge;
 import com.solaria.persistence.domain.entity.Subscription;
 import com.solaria.persistence.domain.enums.BillingStatus;
 import com.solaria.persistence.domain.enums.PaymentMethod;
-import com.solaria.persistence.dto.request.ChargeRequestDTO;
-import com.solaria.persistence.dto.response.ChargeResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ChargeRepository;
 import com.solaria.persistence.repository.SubscriptionRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 @Service
 public class ChargeService {
@@ -30,13 +30,16 @@ public class ChargeService {
 
     private final ChargeRepository chargeRepository;
     private final SubscriptionRepository subscriptionRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public ChargeService(ChargeRepository chargeRepository,
                          SubscriptionRepository subscriptionRepository,
+                         RbacAuthorizationService rbac,
                          ObjectMapper objectMapper) {
         this.chargeRepository = chargeRepository;
         this.subscriptionRepository = subscriptionRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -67,6 +70,8 @@ public class ChargeService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Cobrança não encontrada com ID: " + id));
 
+        rbac.requireOwnCompany(charge.getSubscription().getSupplier().getCompany().getId());
+
         if (charge.getStatus() != BillingStatus.PENDING) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + charge.getStatus() + " → " + BillingStatus.PAID);
@@ -84,6 +89,8 @@ public class ChargeService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Cobrança não encontrada com ID: " + id));
 
+        rbac.requireOwnCompany(charge.getSubscription().getSupplier().getCompany().getId());
+
         if (charge.getStatus() != BillingStatus.PENDING) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + charge.getStatus() + " → " + BillingStatus.CANCELED);
@@ -100,6 +107,8 @@ public class ChargeService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Cobrança não encontrada com ID: " + id));
 
+        rbac.requireOwnCompany(charge.getSubscription().getSupplier().getCompany().getId());
+
         if (charge.getStatus() != BillingStatus.PAID) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + charge.getStatus() + " → " + BillingStatus.REFUNDED);
@@ -112,9 +121,12 @@ public class ChargeService {
 
     @Transactional
     public void generateFromSubscription(UUID subscriptionId, LocalDate dueDate, PaymentMethod paymentMethod) {
-        if (!subscriptionRepository.existsById(subscriptionId)) {
-            throw new ResourceNotFoundException("Assinatura não encontrada com ID: " + subscriptionId);
-        }
+        Subscription subscription = subscriptionRepository.findById(subscriptionId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Assinatura não encontrada com ID: " + subscriptionId));
+
+        rbac.requireOwnCompany(subscription.getSupplier().getCompany().getId());
+
         subscriptionRepository.callGenerateSubscriptionCharge(subscriptionId, dueDate, paymentMethod.name());
     }
 

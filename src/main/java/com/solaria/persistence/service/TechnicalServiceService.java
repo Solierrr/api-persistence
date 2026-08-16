@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.request.TechnicalServiceRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalServiceResponseDTO;
 import com.solaria.persistence.domain.entity.TechnicalProject;
 import com.solaria.persistence.domain.entity.TechnicalService;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto.request.TechnicalServiceRequestDTO;
-import com.solaria.persistence.dto.response.TechnicalServiceResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ServiceExecutorRepository;
 import com.solaria.persistence.repository.TechnicalProjectRepository;
 import com.solaria.persistence.repository.TechnicalServiceRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 @Service
 public class TechnicalServiceService {
@@ -26,15 +26,18 @@ public class TechnicalServiceService {
     private final TechnicalServiceRepository technicalServiceRepository;
     private final TechnicalProjectRepository technicalProjectRepository;
     private final ServiceExecutorRepository serviceExecutorRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public TechnicalServiceService(TechnicalServiceRepository technicalServiceRepository,
                                    TechnicalProjectRepository technicalProjectRepository,
                                    ServiceExecutorRepository serviceExecutorRepository,
+                                   RbacAuthorizationService rbac,
                                    ObjectMapper objectMapper) {
         this.technicalServiceRepository = technicalServiceRepository;
         this.technicalProjectRepository = technicalProjectRepository;
         this.serviceExecutorRepository = serviceExecutorRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -92,6 +95,8 @@ public class TechnicalServiceService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Serviço Técnico não encontrado com ID: " + id));
 
+        rbac.requireOwnCompany(technicalService.getTechnicalProject().getRequester().getCompany().getId());
+
         if (technicalService.getStatus() != ServiceStatus.OPEN) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + technicalService.getStatus() + " → IN_PROGRESS");
@@ -114,6 +119,8 @@ public class TechnicalServiceService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Serviço Técnico não encontrado com ID: " + id));
 
+        rbac.requireOwnCompany(technicalService.getTechnicalProject().getRequester().getCompany().getId());
+
         if (technicalService.getStatus() != ServiceStatus.IN_PROGRESS) {
             throw new BusinessRuleException(
                     "Transição de status inválida: " + technicalService.getStatus() + " → COMPLETED");
@@ -130,6 +137,8 @@ public class TechnicalServiceService {
         TechnicalService technicalService = technicalServiceRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Serviço Técnico não encontrado com ID: " + id));
+
+        rbac.requireOwnCompany(technicalService.getTechnicalProject().getRequester().getCompany().getId());
 
         if (technicalService.getStatus() != ServiceStatus.OPEN && technicalService.getStatus() != ServiceStatus.IN_PROGRESS) {
             throw new BusinessRuleException(
