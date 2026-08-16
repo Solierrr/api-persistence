@@ -12,6 +12,8 @@ public interface PositionPermissionRepository extends JpaRepository<PositionPerm
 
     boolean existsByPositionIdAndPermissionId(UUID positionId, UUID permissionId);
 
+    boolean existsByPositionIdAndPermission_PermissionName(UUID positionId, String permissionName);
+
     List<PositionPermission> findByPositionId(UUID positionId);
 
     void deleteByPositionId(UUID positionId);

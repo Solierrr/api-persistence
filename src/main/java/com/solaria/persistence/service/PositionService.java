@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.dto.request.PositionRequestDTO;
 import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
+import com.solaria.persistence.exception.UnauthorizedAccessException;
 import com.solaria.persistence.repository.CompanyPositionsRepository;
 import com.solaria.persistence.repository.PositionPermissionRepository;
 import com.solaria.persistence.repository.PositionRepository;
@@ -54,6 +54,10 @@ public class PositionService {
         Position position = positionRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Cargo com id:" + id + " não encontrado(a) para atualização"));
 
+        if (Position.ADMIN_NAME.equals(position.getName()) && !Position.ADMIN_NAME.equals(dto.getName())) {
+            throw new UnauthorizedAccessException("Cargo ADMIN não pode ser renomeado");
+        }
+
         position.setName(dto.getName());
         position.setAccesses(dto.getAccesses());
 
@@ -62,8 +66,11 @@ public class PositionService {
 
     @Transactional
     public void deleteById(UUID id) {
-        if (!positionRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Cargo com id:" + id + " não encontrado(a) para exclusão");
+        Position position = positionRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Cargo com id:" + id + " não encontrado(a) para exclusão"));
+
+        if (Position.ADMIN_NAME.equals(position.getName())) {
+            throw new UnauthorizedAccessException("Cargo ADMIN não pode ser excluído");
         }
 
         if (userCompanyRepository.existsByPositionId(id) || companyPositionsRepository.existsByPositionId(id)) {

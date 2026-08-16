@@ -1,22 +1,27 @@
 package com.solaria.persistence.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.solaria.persistence.security.rbac.EndpointAuthorizationInterceptor;
+
+/**
+ * Configuração MVC genérica 
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    private final EndpointAuthorizationInterceptor endpointAuthorizationInterceptor;
 
-    @Value("${app.cors.allowed-origins}")
-    private String allowedOrigins;
+    public WebConfig(EndpointAuthorizationInterceptor endpointAuthorizationInterceptor) {
+        this.endpointAuthorizationInterceptor = endpointAuthorizationInterceptor;
+    }
 
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins(allowedOrigins.split(","))
-                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE")
-                .allowedHeaders("*");
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(endpointAuthorizationInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/internal/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html");
     }
 }
