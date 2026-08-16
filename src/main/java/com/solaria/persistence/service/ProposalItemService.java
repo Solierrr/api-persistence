@@ -8,14 +8,14 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
+import com.solaria.persistence.dto.request.ProposalItemRequestDTO;
+import com.solaria.persistence.dto.response.ProposalItemResponseDTO;
 import com.solaria.persistence.domain.entity.Model;
 import com.solaria.persistence.domain.entity.Offer;
 import com.solaria.persistence.domain.entity.Proposal;
 import com.solaria.persistence.domain.entity.ProposalItem;
-import com.solaria.persistence.dto.request.ProposalItemRequestDTO;
-import com.solaria.persistence.dto.response.ModelResponseDTO;
-import com.solaria.persistence.dto.response.OfferResponseDTO;
-import com.solaria.persistence.dto.response.ProposalItemResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;

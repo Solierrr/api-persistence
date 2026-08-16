@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.EnergyBill;
-import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.dto.request.EnergyBillRequestDTO;
 import com.solaria.persistence.dto.response.EnergyBillResponseDTO;
+import com.solaria.persistence.domain.entity.EnergyBill;
+import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.EnergyBillRepository;

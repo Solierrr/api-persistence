@@ -7,12 +7,12 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.response.ContactResponseDTO;
+import com.solaria.persistence.dto.request.PersonRequestDTO;
+import com.solaria.persistence.dto.response.PersonResponseDTO;
 import com.solaria.persistence.domain.entity.Contact;
 import com.solaria.persistence.domain.entity.Person;
 import com.solaria.persistence.domain.entity.User;
-import com.solaria.persistence.dto.request.PersonRequestDTO;
-import com.solaria.persistence.dto.response.ContactResponseDTO;
-import com.solaria.persistence.dto.response.PersonResponseDTO;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceInUseException;

@@ -6,11 +6,11 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.request.ProfessionalRegistrationRequestDTO;
+import com.solaria.persistence.dto.response.ProfessionalRegistrationResponseDTO;
 import com.solaria.persistence.domain.entity.ProfessionalRegistration;
 import com.solaria.persistence.domain.entity.Profession;
 import com.solaria.persistence.domain.entity.Technician;
-import com.solaria.persistence.dto.request.ProfessionalRegistrationRequestDTO;
-import com.solaria.persistence.dto.response.ProfessionalRegistrationResponseDTO;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CertificationRecordRepository;

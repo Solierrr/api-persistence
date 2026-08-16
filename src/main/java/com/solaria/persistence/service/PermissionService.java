@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Permission;
 import com.solaria.persistence.dto.request.PermissionRequestDTO;
 import com.solaria.persistence.dto.response.PermissionResponseDTO;
+import com.solaria.persistence.domain.entity.Permission;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.PermissionRepository;

@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Company;
-import com.solaria.persistence.domain.entity.CompanyPositions;
-import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.dto.request.CompanyPositionsRequestDTO;
 import com.solaria.persistence.dto.response.CompanyPositionsResponseDTO;
 import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.domain.entity.Company;
+import com.solaria.persistence.domain.entity.CompanyPositions;
+import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;

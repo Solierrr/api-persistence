@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.CompanyPlans;
 import com.solaria.persistence.dto.request.CompanyPlansRequestDTO;
 import com.solaria.persistence.dto.response.CompanyPlansResponseDTO;
+import com.solaria.persistence.domain.entity.CompanyPlans;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;

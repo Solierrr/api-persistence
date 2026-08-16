@@ -6,14 +6,14 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.response.AddressResponseDTO;
+import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
+import com.solaria.persistence.dto.request.CompanyRequestDTO;
+import com.solaria.persistence.dto.response.CompanyResponseDTO;
 import com.solaria.persistence.domain.entity.Address;
 import com.solaria.persistence.domain.entity.BusinessContact;
 import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.enums.CompanyStatus;
-import com.solaria.persistence.dto.request.CompanyRequestDTO;
-import com.solaria.persistence.dto.response.AddressResponseDTO;
-import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
-import com.solaria.persistence.dto.response.CompanyResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;

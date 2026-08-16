@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.request.TechnicianAffiliationRequestDTO;
+import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
 import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.Technician;
 import com.solaria.persistence.domain.entity.TechnicianAffiliation;
 import com.solaria.persistence.domain.enums.TechnicalAffiliationType;
-import com.solaria.persistence.dto.request.TechnicianAffiliationRequestDTO;
-import com.solaria.persistence.dto.response.TechnicianAffiliationResponseDTO;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;

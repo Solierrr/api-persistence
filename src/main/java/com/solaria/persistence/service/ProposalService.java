@@ -10,15 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.request.ProposalRequestDTO;
+import com.solaria.persistence.dto.response.ProposalResponseDTO;
 import com.solaria.persistence.domain.entity.Inventory;
 import com.solaria.persistence.domain.entity.Offer;
 import com.solaria.persistence.domain.entity.Proposal;
 import com.solaria.persistence.domain.entity.ProposalItem;
 import com.solaria.persistence.domain.entity.Requester;
 import com.solaria.persistence.domain.enums.ProposalStatus;
-import com.solaria.persistence.dto.request.ProposalRequestDTO;
-import com.solaria.persistence.dto.response.ProposalResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.InventoryRepository;

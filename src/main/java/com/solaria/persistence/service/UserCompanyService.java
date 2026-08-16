@@ -7,14 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.response.PositionResponseDTO;
+import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
+import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
 import com.solaria.persistence.domain.entity.Company;
 import com.solaria.persistence.domain.entity.Position;
 import com.solaria.persistence.domain.entity.User;
 import com.solaria.persistence.domain.entity.UserCompany;
-import com.solaria.persistence.dto.request.UserCompanyRequestDTO;
-import com.solaria.persistence.dto.response.PositionResponseDTO;
-import com.solaria.persistence.dto.response.UserCompanyResponseDTO;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.exception.UnauthorizedAccessException;

@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Contact;
 import com.solaria.persistence.dto.request.ContactRequestDTO;
 import com.solaria.persistence.dto.response.ContactResponseDTO;
+import com.solaria.persistence.domain.entity.Contact;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ContactRepository;

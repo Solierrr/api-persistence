@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Address;
-import com.solaria.persistence.domain.entity.Geolocalization;
 import com.solaria.persistence.dto.request.GeolocalizationRequestDTO;
 import com.solaria.persistence.dto.response.GeolocalizationResponseDTO;
+import com.solaria.persistence.domain.entity.Address;
+import com.solaria.persistence.domain.entity.Geolocalization;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;

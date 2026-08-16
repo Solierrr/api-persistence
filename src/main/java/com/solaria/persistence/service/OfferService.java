@@ -8,14 +8,14 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.dto.request.OfferRequestDTO;
+import com.solaria.persistence.dto.response.OfferResponseDTO;
 import com.solaria.persistence.domain.entity.Model;
 import com.solaria.persistence.domain.entity.Offer;
 import com.solaria.persistence.domain.entity.Supplier;
 import com.solaria.persistence.domain.enums.ModelStatus;
 import com.solaria.persistence.domain.enums.SupplierStatus;
-import com.solaria.persistence.dto.request.OfferRequestDTO;
-import com.solaria.persistence.dto.response.ModelResponseDTO;
-import com.solaria.persistence.dto.response.OfferResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceInUseException;

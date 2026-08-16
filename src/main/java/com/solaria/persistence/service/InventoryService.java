@@ -6,13 +6,13 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.request.InventoryRequestDTO;
+import com.solaria.persistence.dto.response.InventoryResponseDTO;
+import com.solaria.persistence.dto.response.ModelResponseDTO;
 import com.solaria.persistence.domain.entity.Inventory;
 import com.solaria.persistence.domain.entity.Model;
 import com.solaria.persistence.domain.entity.Supplier;
 import com.solaria.persistence.domain.enums.SupplierStatus;
-import com.solaria.persistence.dto.request.InventoryRequestDTO;
-import com.solaria.persistence.dto.response.InventoryResponseDTO;
-import com.solaria.persistence.dto.response.ModelResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;

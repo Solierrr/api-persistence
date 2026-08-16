@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
-import com.solaria.persistence.domain.entity.Model;
-import com.solaria.persistence.domain.enums.ModelStatus;
 import com.solaria.persistence.dto.request.ModelRequestDTO;
 import com.solaria.persistence.dto.response.ModelResponseDTO;
+import com.solaria.persistence.domain.entity.Model;
+import com.solaria.persistence.domain.enums.ModelStatus;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceInUseException;

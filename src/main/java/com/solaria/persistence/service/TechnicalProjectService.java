@@ -6,12 +6,12 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.request.TechnicalProjectRequestDTO;
+import com.solaria.persistence.dto.response.TechnicalProjectResponseDTO;
 import com.solaria.persistence.domain.entity.LocalUnit;
 import com.solaria.persistence.domain.entity.Requester;
 import com.solaria.persistence.domain.entity.TechnicalProject;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto.request.TechnicalProjectRequestDTO;
-import com.solaria.persistence.dto.response.TechnicalProjectResponseDTO;
 import com.solaria.persistence.exception.ResourceInUseException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.LocalUnitRepository;
