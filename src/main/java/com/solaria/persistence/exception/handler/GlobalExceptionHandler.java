@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -86,6 +87,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 null,
                 request);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
+    // Handler para negação de autorização vinda do próprio Spring Security 
+    // sem handler explícito, o catch-all de Exception abaixo capturaria primeiro e devolveria 500 em vez de 403
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ProblemDetail> handleAccessDenied(AccessDeniedException ex,
+                                                             HttpServletRequest request) {
+        ProblemDetail body = factory.create(HttpStatus.FORBIDDEN,
+                "Você não tem permissão para executar esta ação.",
+                "UNAUTHORIZED_ACCESS",
+                null,
+                request);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(body);
     }
 
     // Handler para erros inesperados

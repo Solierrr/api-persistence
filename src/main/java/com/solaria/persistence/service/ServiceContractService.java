@@ -7,18 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tools.jackson.databind.ObjectMapper;
-
+import com.solaria.persistence.dto.request.ServiceContractRequestDTO;
+import com.solaria.persistence.dto.response.ServiceContractResponseDTO;
 import com.solaria.persistence.domain.entity.ServiceContract;
 import com.solaria.persistence.domain.entity.TechnicalService;
 import com.solaria.persistence.domain.enums.ServiceStatus;
-import com.solaria.persistence.dto.request.ServiceContractRequestDTO;
-import com.solaria.persistence.dto.response.ServiceContractResponseDTO;
 import com.solaria.persistence.exception.BusinessRuleException;
 import com.solaria.persistence.exception.DuplicateResourceException;
 import com.solaria.persistence.exception.InvalidFieldException;
 import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.ServiceContractRepository;
 import com.solaria.persistence.repository.TechnicalServiceRepository;
+import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 
 @Service
@@ -26,13 +26,16 @@ public class ServiceContractService {
 
     private final ServiceContractRepository serviceContractRepository;
     private final TechnicalServiceRepository technicalServiceRepository;
+    private final RbacAuthorizationService rbac;
     private final ObjectMapper objectMapper;
 
     public ServiceContractService(ServiceContractRepository serviceContractRepository,
                                   TechnicalServiceRepository technicalServiceRepository,
+                                  RbacAuthorizationService rbac,
                                   ObjectMapper objectMapper) {
         this.serviceContractRepository = serviceContractRepository;
         this.technicalServiceRepository = technicalServiceRepository;
+        this.rbac = rbac;
         this.objectMapper = objectMapper;
     }
 
@@ -88,6 +91,8 @@ public class ServiceContractService {
         ServiceContract serviceContract = serviceContractRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Contrato de Serviço com id:" + id + " não encontrado para atualização"));
+
+        rbac.requireOwnCompany(serviceContract.getService().getTechnicalProject().getRequester().getCompany().getId());
 
         serviceContract.setUtilityApproval(true);
 
