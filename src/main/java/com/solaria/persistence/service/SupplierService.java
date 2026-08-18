@@ -5,14 +5,20 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.solaria.persistence.dto.request.SupplierSearchFilterDTO;
 import com.solaria.persistence.dto.response.AddressResponseDTO;
 import com.solaria.persistence.dto.response.BusinessContactResponseDTO;
 import com.solaria.persistence.dto.response.CompanyResponseDTO;
 import com.solaria.persistence.dto.request.SupplierRequestDTO;
 import com.solaria.persistence.dto.response.SupplierResponseDTO;
+import com.solaria.persistence.dto.response.SupplierSearchResponseDTO;
 import com.solaria.persistence.domain.entity.Address;
 import com.solaria.persistence.domain.entity.BusinessContact;
 import com.solaria.persistence.domain.entity.Company;
@@ -25,11 +31,15 @@ import com.solaria.persistence.exception.ResourceNotFoundException;
 import com.solaria.persistence.repository.CompanyRepository;
 import com.solaria.persistence.repository.RequesterRepository;
 import com.solaria.persistence.repository.SupplierRepository;
+import com.solaria.persistence.repository.specification.SupplierSpecification;
 import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 
 
 @Service
 public class SupplierService {
+
+    private static final int DEFAULT_PAGE = 0;
+    private static final int DEFAULT_PAGE_SIZE = 20;
 
     private static final Map<SupplierStatus, Set<SupplierStatus>> ALLOWED_TRANSITIONS = Map.of(
             SupplierStatus.ACTIVE, Set.of(SupplierStatus.SUSPENDED, SupplierStatus.DEACTIVATED),
@@ -117,6 +127,34 @@ public class SupplierService {
     @Transactional(readOnly = true)
     public List<SupplierResponseDTO> findByCompany(UUID companyId) {
         return supplierRepository.findByCompanyId(companyId).stream().map(this::toResponse).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public SupplierSearchResponseDTO search(SupplierSearchFilterDTO filters) {
+        int pageNumber = filters.getPage() != null ? filters.getPage() : DEFAULT_PAGE;
+        int pageSize = filters.getSize() != null ? filters.getSize() : DEFAULT_PAGE_SIZE;
+
+        Pageable pageable = PageRequest.of(
+                pageNumber,
+                pageSize,
+                Sort.by("company.tradeName")
+                        .ascending()
+                        .and(Sort.by("id").ascending()));
+
+        Page<Supplier> result = supplierRepository.findAll(
+                SupplierSpecification.withFilters(filters),
+                pageable);
+
+        SupplierSearchResponseDTO response = new SupplierSearchResponseDTO();
+        response.setContent(result.getContent().stream().map(this::toResponse).toList());
+        response.setPage(result.getNumber());
+        response.setSize(result.getSize());
+        response.setTotalElements(result.getTotalElements());
+        response.setTotalPages(result.getTotalPages());
+        response.setFirst(result.isFirst());
+        response.setLast(result.isLast());
+
+        return response;
     }
 
     private SupplierResponseDTO applyTransition(UUID id, SupplierStatus target) {
