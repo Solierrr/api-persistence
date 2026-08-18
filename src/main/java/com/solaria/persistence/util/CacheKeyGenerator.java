@@ -1,15 +1,21 @@
 package com.solaria.persistence.util;
 
+import com.solaria.persistence.config.RedisProperties;
+import org.springframework.stereotype.Component;
+
+@Component
 public final class CacheKeyGenerator {
-    private static final String PREFIX = "core";
+    private final RedisProperties redisProperties;
 
-    private CacheKeyGenerator() {}
-
-    public static String supplierSearch(String filters) {
-        return PREFIX + ":search:supplier:" + filters;
+    public CacheKeyGenerator(RedisProperties redisProperties) {
+        this.redisProperties = redisProperties;
     }
 
-    public static String searchCounter(String filters) {
-        return PREFIX + ":counter:search:" + filters;
+    public String supplierSearch(String filters) {
+        return redisProperties.getNamespace() + ":search:supplier:" + filters;
+    }
+
+    public String searchCounter(String filters) {
+        return redisProperties.getNamespace() + ":counter:search:" + filters;
     }
 }
