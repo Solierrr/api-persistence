@@ -31,5 +31,8 @@ public class RedisProperties {
         private int maxCacheablePage = 2;
 
         private int maxCacheableSize = 50;
+
+        private Duration counterTtl = Duration.ofHours(1);
+        
     }
 }

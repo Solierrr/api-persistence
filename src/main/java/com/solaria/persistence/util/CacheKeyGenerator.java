@@ -14,9 +14,7 @@ import java.util.Objects;
 @Component
 public final class CacheKeyGenerator {
 
-    private static final String CACHE_VERSION     = "v1";
-    private static final int    DEFAULT_PAGE      = 0;
-    private static final int    DEFAULT_PAGE_SIZE = 20;
+    private static final String CACHE_VERSION = "v1";
 
     private final RedisProperties redisProperties;
 
@@ -55,16 +53,8 @@ public final class CacheKeyGenerator {
         append(value, "businessType", normalize(filters.getBusinessType()));
 
         if (includePagination) {
-            int page = filters.getPage() != null
-                    ? filters.getPage()
-                    : DEFAULT_PAGE;
-
-            int size = filters.getSize() != null
-                    ? filters.getSize()
-                    : DEFAULT_PAGE_SIZE;
-
-            append(value, "page", Integer.toString(page));
-            append(value, "size", Integer.toString(size));
+            append(value, "page", Integer.toString(filters.getPage()));
+            append(value, "size", Integer.toString(filters.getSize()));
         }
 
         return value.toString();

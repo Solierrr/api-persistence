@@ -38,9 +38,6 @@ import com.solaria.persistence.security.rbac.RbacAuthorizationService;
 @Service
 public class SupplierService {
 
-    private static final int DEFAULT_PAGE = 0;
-    private static final int DEFAULT_PAGE_SIZE = 20;
-
     private static final Map<SupplierStatus, Set<SupplierStatus>> ALLOWED_TRANSITIONS = Map.of(
             SupplierStatus.ACTIVE, Set.of(SupplierStatus.SUSPENDED, SupplierStatus.DEACTIVATED),
             SupplierStatus.SUSPENDED, Set.of(SupplierStatus.ACTIVE, SupplierStatus.DEACTIVATED),
@@ -131,12 +128,9 @@ public class SupplierService {
 
     @Transactional(readOnly = true)
     public SupplierSearchResponseDTO search(SupplierSearchFilterDTO filters) {
-        int pageNumber = filters.getPage() != null ? filters.getPage() : DEFAULT_PAGE;
-        int pageSize = filters.getSize() != null ? filters.getSize() : DEFAULT_PAGE_SIZE;
-
         Pageable pageable = PageRequest.of(
-                pageNumber,
-                pageSize,
+                filters.getPage(),
+                filters.getSize(),
                 Sort.by("company.tradeName")
                         .ascending()
                         .and(Sort.by("id").ascending()));
