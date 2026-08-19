@@ -129,7 +129,9 @@ public class SupplierCacheService {
 
         RedisProperties.SupplierSearch properties = redisProperties.getSupplierSearch();
 
-        return filters.getPage() <= properties.getMaxCacheablePage()
+        return filters.getPage() >= 0
+                && filters.getPage() <= properties.getMaxCacheablePage()
+                && filters.getSize() > 0
                 && filters.getSize() <= properties.getMaxCacheableSize();
     }
 

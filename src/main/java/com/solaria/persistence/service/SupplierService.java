@@ -48,15 +48,18 @@ public class SupplierService {
     private final CompanyRepository companyRepository;
     private final RequesterRepository requesterRepository;
     private final RbacAuthorizationService rbac;
+    private final SupplierCacheService supplierCacheService;
 
     public SupplierService(SupplierRepository supplierRepository,
                            CompanyRepository companyRepository,
                            RequesterRepository requesterRepository,
-                           RbacAuthorizationService rbac) {
+                           RbacAuthorizationService rbac,
+                           SupplierCacheService supplierCacheService) {
         this.supplierRepository = supplierRepository;
         this.companyRepository = companyRepository;
         this.requesterRepository = requesterRepository;
         this.rbac = rbac;
+        this.supplierCacheService = supplierCacheService;
     }
 
     @Transactional
@@ -128,6 +131,13 @@ public class SupplierService {
 
     @Transactional(readOnly = true)
     public SupplierSearchResponseDTO search(SupplierSearchFilterDTO filters) {
+
+        SupplierSearchResponseDTO cachedResponse = supplierCacheService.find(filters).orElse(null);
+
+        if (cachedResponse != null) {
+            return cachedResponse;
+        }
+
         Pageable pageable = PageRequest.of(
                 filters.getPage(),
                 filters.getSize(),
@@ -147,6 +157,8 @@ public class SupplierService {
         response.setTotalPages(result.getTotalPages());
         response.setFirst(result.isFirst());
         response.setLast(result.isLast());
+
+        supplierCacheService.handleCacheMiss(filters, response);
 
         return response;
     }
